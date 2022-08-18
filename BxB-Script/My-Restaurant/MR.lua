@@ -3,7 +3,7 @@ for i,v in next, getconnections(game.Players.LocalPlayer.Idled) do
 v:Disable()
 end
 
-local petNet = loadstring(game:HttpGet("https://rawscripts.net/raw/Pet-Simulator-X!-PSX-Safe-Networking-3732"))()
+local petNet = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/My-Restaurant/Net.lua"))()
 
 local Food = petNet:getPath("Food")
 local Entity = petNet:getPath("Entity")
