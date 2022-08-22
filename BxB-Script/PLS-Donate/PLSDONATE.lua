@@ -67,7 +67,7 @@ local booths = {
 local queueonteleport = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 local httprequest = (syn and syn.request) or http and http.request or http_request or (fluxus and fluxus.request) or request
 local httpservice = game:GetService('HttpService')
-queueonteleport("loadstring(game:HttpGet(''))()")
+queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/PLS-Donate/PLSDONATE.lua'))()")
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/PLS-Donate/Lib.lua"))()
 getgenv().settings = {}
 --Load Settings
