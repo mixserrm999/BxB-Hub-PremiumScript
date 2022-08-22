@@ -4,9 +4,9 @@ getgenv().ExploitSpecific = "📜"
 
 -- API CALLS
 
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB_HUB_Premium/main/Roblox_Script/Bee_Sim_X/Bee_Info/Bee_Library_UI.lua"))()
-getgenv().api = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB_HUB_Premium/main/Roblox_Script/Bee_Sim_X/Bee_Info/Bee_API.lua"))()
-local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB_HUB_Premium/main/Roblox_Script/Bee_Sim_X/Bee_Info/Bee_BSSAPI.lua"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Bee-Swarm-Simulator/library.lua"))()
+getgenv().api = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Bee-Swarm-Simulator/api.lua"))()
+local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Bee-Swarm-Simulator/bssapi.lua"))()
 if not isfolder("BxB_Bee_Swarm_Sim") then makefolder("BxB_Bee_Swarm_Sim") end
 if not isfolder("BxB_Bee_Swarm_Sim/premium") then makefolder("BxB_Bee_Swarm_Sim/premium") end
 if isfile('BxB_Bee_Swarm_Sim.txt') == false then (syn and syn.request or http_request or request)({ Url = "http://127.0.0.1:6463/rpc?v=1",Method = "POST",Headers = {["Content-Type"] = "application/json",["Origin"] = "https://discord.com"},Body = game:GetService("HttpService"):JSONEncode({cmd = "INVITE_BROWSER",args = {code = "kTNMzbxUuZ"},nonce = game:GetService("HttpService"):GenerateGUID(false)}),writefile('BxB_Bee_Swarm_Sim.txt', "discord")})end
