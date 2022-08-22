@@ -1,4 +1,0 @@
-return {
-  "1A8A0350-E8C0-4582-BD7F-2ACA1DFCA4DB",
-  "GG"
-  }
