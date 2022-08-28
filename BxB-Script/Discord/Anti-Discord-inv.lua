@@ -177,7 +177,7 @@ end
 if loaded then
     
     getgenv().EXECUTED = true
-    rconsoleprint('@@Green@@')
+    rconsoleprint('@@GREEN@@')
 rconsoleprint('Anti-Discord Server Invites\nThe script is loaded\n\n')
     warn("Anti-Discord Server Invites\nThe script is loaded")
     message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\n", Duration = 5})
