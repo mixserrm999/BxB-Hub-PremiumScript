@@ -26,14 +26,16 @@ Fixed settings
 ]]
 
 if not syn then
-    
+    rconsoleprint('@@RED@@')
+    rconsoleprint('Anti-Discord Server Invites | ERROR: | UNSUPPORTED EXPLOIT\n')
     warn("Anti-Discord Server Invites | ERROR: | UNSUPPORTED EXPLOIT")
     return
     
 end
 
 if getgenv().EXECUTED then
-    
+    rconsoleprint('@@RED@@')
+rconsoleprint('Anti-Discord Server Invites | ERROR: | ALREADY EXECUTED\n')
     warn("Anti-Discord Server Invites | ERROR: | ALREADY EXECUTED")
     return
     
@@ -95,7 +97,8 @@ local function disable()
         local caller = getcallingscript()
         
         if args["Url"] == targeturl then
-            
+            rconsoleprint('@@GREEN@@')
+rconsoleprint('Anti-Discord Server Invites | HOOKED DISCORD INVITE\n')
             warn("Anti-Discord Server Invites | HOOKED DISCORD INVITE")
             return nil
             
@@ -129,11 +132,13 @@ if retryiffailed then
             end)
             
             if not success then
-                
+                rconsoleprint('@@RED@@')
+rconsoleprint('Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | '..errormessage.."\n")
                 warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | "..errormessage)
                 
             else suc = true loaded = true break end
-            
+            rconsoleprint('@@BLUE@@')
+rconsoleprint('Anti-Discord Server Invites | RETRIED TO DISABLE\n')
             warn("Anti-Discord Server Invites | RETRIED TO DISABLE")
             
             task.wait(0.05)
@@ -141,7 +146,8 @@ if retryiffailed then
         end
         
         if not suc then
-            
+            rconsoleprint('@@RED@@')
+rconsoleprint('Failed to disable Discord Server Invites')
             message({Title = "ERROR", Text = "Failed to disable Discord Server Invites", Duration = 5})
             
         end
@@ -157,7 +163,8 @@ else
     end)
     
     if not success then
-        
+        rconsoleprint('@@RED@@')
+rconsoleprint('Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | '..errormessage.."\n")
         warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | "..errormessage)
         message({Title = "ERROR", Text = "Failed to disable Discord Server Invites\n"..errormessage, Duration = 5})
         
@@ -172,7 +179,9 @@ end
 if loaded then
     
     getgenv().EXECUTED = true
-    warn("Anti-Discord Server Invites\nThe script is loaded\nMade by just a tree#0556 for my Synapse fellas")
+    rconsoleprint('@@Light Magenta@@')
+rconsoleprint('Anti-Discord Server Invites\nThe script is loaded\n')
+    warn("Anti-Discord Server Invites\nThe script is loaded")
     message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\n", Duration = 5})
     
 end
