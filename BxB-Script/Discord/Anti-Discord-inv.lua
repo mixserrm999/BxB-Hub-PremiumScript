@@ -1,8 +1,6 @@
 -- Anti-Discord Server Invites
--- Made by just a tree#0556 for my Synapse fellas
 -- Version: 1.1
 
--- Feel free to modify or improve it idc
 -- Settings: RetryIfFailed, Attempts, UseMessages
 -- Use getgenv() to set settings
 -- Recommended to put it in your autoexec folder
