@@ -6,6 +6,17 @@
 -- Settings: RetryIfFailed, Attempts, UseMessages
 -- Use getgenv() to set settings
 -- Recommended to put it in your autoexec folder
+--[[ EXAMPLE
+
+--loadstring and syn and syn.request
+
+assert(loadstring,"UNSUPPORTED EXPLOIT")
+loadstring(syn.request({
+    ["Url"] = "https://pastebin.com/raw/Jmn3pBqH",
+    ["Method"] = "GET"
+    })
+    ["Body"])()
+]]--
 
 --[[ 
 Change logs:
@@ -162,6 +173,6 @@ if loaded then
     
     getgenv().EXECUTED = true
     warn("Anti-Discord Server Invites\nThe script is loaded\nMade by just a tree#0556 for my Synapse fellas")
-    message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\nMade by just a tree#0556 for my Synapse fellas", Duration = 5})
+    message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\n", Duration = 5})
     
 end
