@@ -71,8 +71,8 @@ queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/BxB-
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/PLS-Donate/Lib.lua"))()
 getgenv().settings = {}
 --Load Settings
-if isfile("plsdonatesettings.txt") then
-    getgenv().settings = httpservice:JSONDecode(readfile('plsdonatesettings.txt'))
+if isfile("BxB-PLS-Donate.txt") then
+    getgenv().settings = httpservice:JSONDecode(readfile('BxB-PLS-Donate.txt'))
 end
 local sNames = {"textUpdateToggle", "textUpdateDelay", "serverHopToggle", "serverHopDelay", "hexBox", "goalBox", "webhookToggle", "webhookBox", "danceToggle", "thanksMessage", "signToggle", "customBoothText", "signUpdateToggle", "signText", "signHexBox", "autoThanks", "autoBeg", "begMessage", "begDelay", "fpsLimit", "render"}
 local sValues = {true, 30, true, 30, "#32CD32", 5, false, "", false, {"Thank you", "Thanks!", "ty :)", "tysm!"}, false, "GOAL: $C / $G", false, "your text here", "#ffffff", true, false, {"Please donate", "I'm so close to my goal!", "donate to me", "please"}, 300, 60, false}
@@ -82,7 +82,7 @@ if #getgenv().settings ~= sNames then
             getgenv().settings[v] = sValues[i]
         end
     end
-    writefile('plsdonatesettings.txt', httpservice:JSONEncode(getgenv().settings))
+    writefile('BxB-PLS-Donate.txt', httpservice:JSONEncode(getgenv().settings))
 end
 
 --Save Settings
@@ -90,7 +90,7 @@ local settingsLock = true
 local function saveSettings()
     if settingsLock == false then
         print('Settings saved.')
-        writefile('plsdonatesettings.txt', httpservice:JSONEncode(getgenv().settings))
+        writefile('BxB-PLS-Donate.txt', httpservice:JSONEncode(getgenv().settings))
     end
 end
 
@@ -210,7 +210,7 @@ end
 --GUI
 local Window = library:AddWindow("PLS DONATE",
 {
-    main_color = Color3.fromRGB(0, 128, 0),
+    main_color = Color3.fromRGB(0, 0, 0),
     min_size = Vector2.new(350, 410),
     toggle_key = Enum.KeyCode.RightShift,
     can_resize = true
@@ -600,7 +600,7 @@ Players.LocalPlayer.leaderstats.Raised.Changed:Connect(function()
         if string.find(logs[#logs].message, Players.LocalPlayer.DisplayName) then
             webhook(tostring(logs[#logs].message.. " (Total: ".. Players.LocalPlayer.leaderstats.Raised.value.. ")"))
         else
-            webhook(tostring("💰 Somebody tipped ".. Players.LocalPlayer.leaderstats.Raised.value - RaisedC.. " Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.value.. ")"))
+            webhook(tostring("💰 Somebody tipped [".. Players.LocalPlayer.leaderstats.Raised.value - RaisedC.. "] Robux to ".. Players.LocalPlayer.DisplayName.. " (Total: " .. Players.LocalPlayer.leaderstats.Raised.value.. ")"))
         end
     end
     RaisedC = Players.LocalPlayer.leaderstats.Raised.value
