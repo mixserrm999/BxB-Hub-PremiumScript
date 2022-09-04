@@ -11,3 +11,5 @@ getgenv().CrosshairSettings = {
     HideGameCrosshair = true, -- Hides the current game's crosshair (if its supported)
 } -- v1.0.0
 loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/UNIVERSAL/Crosshair/Custom-load.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Phantom-Forces/ESP.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Phantom-Forces/Hit-log.lua", true))()
