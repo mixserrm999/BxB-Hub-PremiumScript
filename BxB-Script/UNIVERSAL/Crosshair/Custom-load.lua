@@ -1,4 +1,4 @@
-1
+
 function msg(text,duration)
     local hint = Instance.new("Hint",game.CoreGui)
     hint.Text = text
