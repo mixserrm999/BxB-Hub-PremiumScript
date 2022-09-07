@@ -178,10 +178,11 @@ for method, enabled in Pairs(methods) do
 end;
 
 if not debug.info(2, "f") then
-    pconsole("@@RED@@","You are running an outdated version, please use the loadstring at https://github.com/BxB-HUB\n");
+    pconsole("You are running an outdated version, please use the loadstring at https://github.com/BxB-HUB\n");
 end;
 
-pconsole(format("@@RED@@","HttpSpy %s (Creator: https://github.com/BxB-HUB)\nChange Logs:\n\t%s\nLogs are automatically being saved to: \27[32m%s\27[0m\n\n", version, RecentCommit, options.SaveLogs and logname or "(You aren't saving logs, enable SaveLogs if you want to save logs)"));
+pconsole(format("HttpSpy %s (Creator: https://github.com/BxB-HUB)\nChange Logs:\n\t%s\nLogs are automatically being saved to: \27[32m%s\27[0m\n\n", version, RecentCommit, options.SaveLogs and logname or "(You aren't saving logs, enable SaveLogs if you want to save logs)"));
+
 
 if not options.API then return end;
 
