@@ -1,4 +1,4 @@
-local AntiDisplayName = loadstring(game:HttpGet('https://pastebin.com/raw/hCMXnKWa'))(function()
+local AntiDisplayName = loadstring(game:HttpGet('https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Anti-DisplayName/Load.lua'))(function()
     getgenv().Preferences = {}
 end)
 
