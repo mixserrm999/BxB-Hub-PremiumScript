@@ -1,7 +1,7 @@
 if game.CoreGui:FindFirstChild("NotificationUI") then
 warn("Already loaded gui!")
 else
-loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Tower-Defense-Simulator/UI.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Tower-Defense-Simulator/AutoFarm/Low-LvL.lua/UI.lua"))()
 end
 local UI = game.CoreGui.NotificationUI
 function say(NotificationTitle, NotificationText, Delay)
