@@ -36,3 +36,41 @@ elseif input.KeyCode == Enum.KeyCode.M and not chatting then
 actc("Swarmer","Swarm")
 end
 end)
+--[[ ========================================== ]]--
+--[[ ============== [ Hotkey ] ============== ]]--
+
+--original script by MintTea, customizable
+local m = game.Players.LocalPlayer:GetMouse()
+function findModel(part)
+    while true do
+        local parentModel = part:FindFirstAncestorOfClass("Model")
+        if not parentModel then
+            return nil
+        end
+        if parentModel.Parent == workspace.Towers then
+            return parentModel
+        else
+            part = parentModel
+        end
+    end
+end
+m.KeyDown:Connect(function(key)
+    local tar = m.Target
+    local tower = findModel(tar)
+    if tower then
+    if key:lower() == "e" then
+     game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Upgrade","Set",{["Troop"] = tower})
+    elseif key:lower() == "r" then
+        game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Sell",{["Troop"] = tower})
+	elseif key:lower() == "z" then
+        game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Abilities","Activate",{["Name"] = "Call Of Arms",["Troop"] = tower})
+    elseif key:lower() == "x" then
+        game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Abilities","Activate",{["Name"] = "Warrior's Call",["Troop"] = tower})
+    elseif key:lower() == "c" then
+        game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Abilities","Activate",{["Name"] = "Cleansing",["Troop"] = tower})
+    elseif key:lower() == "v" then
+        game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Troops","Abilities","Activate",{["Name"] = "Swarm",["Troop"] = tower})
+    end
+    end
+end)
+--[[ ========================================== ]]--
