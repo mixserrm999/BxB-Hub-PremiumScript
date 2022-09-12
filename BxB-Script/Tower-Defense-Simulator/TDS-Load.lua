@@ -23,7 +23,7 @@ if not getgenv().ExecutedAlr then
     getgenv().MapUsed = false
     loadstring(
         game:HttpGet(
-            "https://raw.githubusercontent.com/banbuskox/dfhtyxvzexrxgfdzgzfdvfdz/main/sjkdkjlfdjnnmklcvxjNotifCr"
+            "https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Tower-Defense-Simulator/Notify.lua"
         )
     )()
     if isfile("DNR.txt") and not isfolder("TDS_AutoStrat") then
