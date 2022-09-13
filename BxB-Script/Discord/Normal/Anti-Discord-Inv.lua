@@ -1,5 +1,6 @@
 -- Anti-Discord Server Invites
 -- supported exploits: Synapse X, KRNL, Script-Ware, Fluxus
+-- Made by just a tree#0556 for my Synapse fellas
 -- Version: 2.0
 
 -- Feel free to modify or improve it idc
@@ -196,7 +197,7 @@ end
 if loaded then
     
     getgenv().EXECUTED = true
-    warn("Anti-Discord Server Invites\nThe script is loaded")
+    warn("Anti-Discord Server Invites\nThe script is loaded\nMade by just a tree#0556 for my Synapse fellas")
     message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\nMade by just a tree#0556 for my Synapse fellas", Duration = 5})
     
 end
