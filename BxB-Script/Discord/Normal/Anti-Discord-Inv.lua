@@ -1,71 +1,69 @@
 -- Anti-Discord Server Invites
--- supported exploits: Synapse X, KRNL, Script-Ware, Fluxus
+-- supported exploits: Synapse X
 -- Made by just a tree#0556 for my Synapse fellas
--- Version: 2.0
+-- Version: 2.1
 
 -- Feel free to modify or improve it idc
--- Settings: RetryIfFailed, Attempts, UseMessages, ENABLED
--- Use getgenv() to set settings
+-- Settings: ADSI_RetryIfFailed, ADSI_Attempts, ADSI_UseMessages, ADSI_ENABLED
+-- Use getgenv() to set the settings
 -- Recommended to put it in your autoexec folder
 
 --[[ 
 Change logs:
 
-Added support for other exploits (KRNL, Script-Ware, Fluxus)
-Added the "ENABLED" setting
+[FIXED] - the script (yes im dumb)
+[REMOVED] - support for exploits other than Synapse X (fuck non-SynX kiddies)
+[ADDED] - the "Copy the invite link" button (ONLY "IF ASDI_UseMessages" IS ENABLED)
+[ADDED] - "getgenv().ASDI_LastInvite" variable
 
 ]]
 
-if not (syn or (getexecutorname and getexecutorname() == "ScriptWare") or fluxus or KRNL_LOADED) then
+if not syn then
     
     warn("Anti-Discord Server Invites | ERROR: | UNSUPPORTED EXPLOIT")
     return
     
 end
 
-if getgenv().EXECUTED then
+if getgenv().ADSI_EXECUTED then
     
     warn("Anti-Discord Server Invites | ERROR: | ALREADY EXECUTED")
     return
     
 end
 
-if type(getgenv().RetryIfFailed) == nil then
+if getgenv().ADSI_RetryIfFailed == nil or type(getgenv().ADSI_RetryIfFailed) ~= "boolean" then
     
-    getgenv().RetryIfFailed = false
-    
-end
-
-if not type(getgenv().Attempts) == nil then
-    
-    getgenv().Attempts = 10
+    getgenv().ADSI_RetryIfFailed = false
     
 end
 
-if not type(getgenv().UseMessages) == nil then
+if getgenv().ADSI_Attempts == nil or type(getgenv().ADSI_Attempts) ~= "number" then
     
-    getgenv().UseMessages = true
+    getgenv().ADSI_Attempts = 10
     
 end
 
-if not type(getgenv().ENABLED) == nil then
+if getgenv().ADSI_UseMessages == nil or type(getgenv().ADSI_UseMessages) ~= "boolean" then
     
-    getgenv().ENABLED = true
+    getgenv().ADSI_UseMessages = true
+    
+end
+
+if getgenv().ADSI_ENABLED == nil or type(getgenv().ADSI_ENABLED) ~= "boolean" then
+    
+    getgenv().ADSI_ENABLED = true
     
 end
 
 local targets = {
     "http://127.0.0.1:6463/rpc?v=1";
 }
-local attempts = getgenv().Attempts
-local retryiffailed = getgenv().RetryIfFailed
-local usemessages = getgenv().UseMessages
-local req = (syn and syn.request) or request
 local loaded = false
 
 local function message(set)
     
-    if usemessages == true then
+    if getgenv().ADSI_UseMessages then
         
         local success = pcall(function()
             
@@ -85,20 +83,32 @@ local function message(set)
     
 end
 
+local callback = Instance.new("BindableFunction")
+callback.OnInvoke = function()
+    
+    setclipboard(getgenv().ASDI_LastInvite)
+    message({Title = "Anti-Discord Server Invites", Text = "Copied", Duration = 5})
+    
+end
+
 local function disable()
     
     setreadonly(syn, false)
-    local oldfunc = req
-    req = newcclosure(function(data)
+    local oldfunc = syn.request
+    syn.request = newcclosure(function(data)
         
-        if getgenv().ENABLED then
+        if getgenv().ADSI_ENABLED then
             
             local args = data
             local caller = getcallingscript()
             
             if table.find(targets, args["Url"]) then
                 
-                warn("Anti-Discord Server Invites | HOOKED DISCORD INVITE")
+                getgenv().ASDI_LastInvite = "https://discord.gg/"..game:GetService("HttpService"):JSONDecode(args["Body"])["args"]["code"]
+                
+                warn("Anti-Discord Server Invites | HOOKED DISCORD INVITE | LINK:\nhttps://discord.gg/"..game:GetService("HttpService"):JSONDecode(args["Body"])["args"]["code"])
+                message({Title = "Anti-Discord Server Invites", Text = "Hooked Discord invite\nWould you like to copy the invite's link?", Duration = 5, Button1 = "Copy", Callback = callback})
+                
                 return
                 
             else
@@ -107,7 +117,11 @@ local function disable()
                     
                     if string.match(string.lower(v), string.lower(args["Url"])) then
                         
-                        warn("Anti-Discord Server Invites | HOOKED DISCORD INVITE")
+                        getgenv().ASDI_LastInvite = "https://discord.gg/"..game:GetService("HttpService"):JSONDecode(args["Body"])["args"]["code"]
+                        
+                        warn("Anti-Discord Server Invites | HOOKED DISCORD INVITE | LINK:\nhttps://discord.gg/"..game:GetService("HttpService"):JSONDecode(args["Body"])["args"]["code"])
+                        message({Title = "Anti-Discord Server Invites", Text = "Hooked Discord invite\nWould you like to copy the invite's link?", Duration = 5, Button1 = "Copy", Callback = callback})
+                        
                         return
                         
                     else
@@ -133,7 +147,7 @@ local function disable()
     
 end
 
-if retryiffailed then
+if getgenv().ADSI_RetryIfFailed then
     
     local success, errormessage = pcall(function()
         
@@ -145,7 +159,7 @@ if retryiffailed then
         
         local suc = false
         
-        for i = 1, attempts, 1 do
+        for i = 1, getgenv().ADSI_Attempts, 1 do
             
             local success, errormessage = pcall(function()
                 
@@ -155,7 +169,7 @@ if retryiffailed then
             
             if not success then
                 
-                warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | "..errormessage)
+                warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR:\n"..errormessage)
                 
             else suc = true loaded = true break end
             
@@ -183,7 +197,7 @@ else
     
     if not success then
         
-        warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR: | "..errormessage)
+        warn("Anti-Discord Server Invites | Failed to disable Discord Server Invites | ERROR:\n"..errormessage)
         message({Title = "ERROR", Text = "Failed to disable Discord Server Invites\n"..errormessage, Duration = 5})
         
     else
@@ -196,7 +210,7 @@ end
 
 if loaded then
     
-    getgenv().EXECUTED = true
+    getgenv().ADSI_EXECUTED = true
     warn("Anti-Discord Server Invites\nThe script is loaded\nMade by just a tree#0556 for my Synapse fellas")
     message({Title = "Anti-Discord Server Invites", Text = "The script is loaded\nMade by just a tree#0556 for my Synapse fellas", Duration = 5})
     
