@@ -6,3 +6,12 @@ loadstring(syn.request({
     ["Url"] = "https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Discord/Normal/Anti-Discord-Inv.lua";
     ["Method"] = "GET";
 }).Body)()
+
+--NEW
+
+assert(syn, "UNSUPPORTED EXPLOIT")
+
+loadstring(syn.request({
+    ["Url"] = "https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Discord/Normal/Anti-Discord-Inv.lua";
+    ["Method"] = "GET";
+}).Body)()
