@@ -14,7 +14,7 @@ local IMAGE = 13
 local TEXTBOX = 14
 
 if not BBOT then
-	BBOT = { username = "dev" }
+	BBOT = { username = "Developer : Boom WrkSs" }
 end
 local menu
 
