@@ -6,12 +6,12 @@ queue_on_teleport([[   loadstring(game:HttpGet("https://raw.githubusercontent.co
 local DINOHUB = Instance.new("ScreenGui")
 local OPENCLOSE = Instance.new("TextButton")
 
-DINOHUB.Name = "Nub Hub"
+DINOHUB.Name = "BxB Hub"
 DINOHUB.Parent = game.CoreGui
 DINOHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 
-do local GUI = game.CoreGui:FindFirstChild("Nub Hub");if GUI then GUI:Destroy();end;if _G.Color == Color3.fromRGB(255, 255, 255) then
+do local GUI = game.CoreGui:FindFirstChild("BxB Hub");if GUI then GUI:Destroy();end;if _G.Color == Color3.fromRGB(255, 255, 255) then
        _G.Color = Color3.fromRGB(255, 255, 255)
    end 
 end
@@ -82,7 +82,7 @@ function Update:Window(text,logo,keybind)
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local SOMEXHUB = Instance.new("ScreenGui")
-	SOMEXHUB.Name = "Nub Hub"
+	SOMEXHUB.Name = "BxB Hub"
 	SOMEXHUB.Parent = game.CoreGui
 	SOMEXHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -2248,7 +2248,7 @@ local games = {
               " "
                    ..
 
-                        Gamename.. "!" .. " \Nub.xyz Loadded"  .."\n Welcome"
+                        Gamename.. "!" .. " \BxB.xyz Loadded"  .."\n Welcome"
             )
       end
    }
