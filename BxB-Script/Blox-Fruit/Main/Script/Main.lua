@@ -1,6 +1,6 @@
 local queue_on_teleport = queue_on_teleport
 if syn then queue_on_teleport = syn.queue_on_teleport end
-queue_on_teleport([[   loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Blox-Fruit/Main/Discord-inv/BF/Main.lua"))()
+queue_on_teleport([[   loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Blox-Fruit/Main/Script/Main.lua"))()
 ]])
 
 local DINOHUB = Instance.new("ScreenGui")
