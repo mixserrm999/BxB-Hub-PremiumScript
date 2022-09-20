@@ -2,7 +2,7 @@
 --// Game Load
 if not game:IsLoaded() then game.Loaded:Wait() end
 --// LOCAL MAIN
-local youwebhook = "https://discord.com/api/webhooks/987209584852754463/QzT5qfGcgBKaCpe8DH4eXqcQfwayT-mR3QS7DLZR_KTKryi_K0LJ120tV4cH8pU_85Nv"
+local youwebhook = getgenv().HOOKURL
 local HTTP = game:GetService("HttpService")
 local marketplaceService = game:GetService("MarketplaceService")
 local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, game.PlaceId)
