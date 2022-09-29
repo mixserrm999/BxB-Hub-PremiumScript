@@ -111,7 +111,7 @@ local requestwebhook = syn.request({
             },
          {
                 ["name"] = "CREDIT",
-                ["value"] = "```Credit : B O O M#4134 \n         https://github.com/BxB-HUB```",
+                ["value"] = "```Credit : B O O M#4134 \n         https://bxb-hub.github.io/BxB_Site/```",
                 ["inline"] = CL
             },
             }
