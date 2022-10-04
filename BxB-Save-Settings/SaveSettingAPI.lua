@@ -1,5 +1,5 @@
-getgenv()['P_Name'] = game.Players.LocalPlayer.Name
-getgenv()['G_Name'] = game.PlaceId
+getgenv()['MyName'] = game.Players.LocalPlayer.Name
+getgenv()['GameId'] = game.PlaceId
 getgenv()['JsonEncode'] = function(msg)
     return game:GetService("HttpService"):JSONEncode(msg)
 end
