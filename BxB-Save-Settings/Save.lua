@@ -4,6 +4,7 @@ Get_Setting(ชื่อไฟล์) -- ดูว่า Setting มีอะไ
 Update_Setting(ชื่อไฟล์) -- Update Setting ใหม่
 ---- เเถม ----
 getgenv()['MyName'] -- Getชื่อของตัวเอง
+getgenv()['GameId'] -- ID เกม
 JsonEncode(table) -- แปลงค่าเป็น JSON
 JsonDecode(JSON) -- แปลงจาก JSON เป็น Table
 ---- Ex. ----
