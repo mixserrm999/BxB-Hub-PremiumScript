@@ -1,4 +1,3 @@
-
 --// Game Load
 if not game:IsLoaded() then game.Loaded:Wait() end
 --// LOCAL MAIN
@@ -78,9 +77,10 @@ local requestwebhook = syn.request({
     Body = game:GetService("HttpService"):JSONEncode({
     ["username"] = "BxB.xyz | Webhook",
       ["avatar_url"] = "https://cdn.discordapp.com/attachments/1021789126388887593/1021789164003393577/Free_Sample_By_Wix_1.jpg",
-      ["content"] = "@everyone ",
+      ["content"] = ID,
        ["embeds"] = {{
            ["title"] = "**"..game.Players.LocalPlayer.Name.." | Executed Your Script!**" ,  
+           ["url"] = "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile",
            ["description"] = "",
            ["color"] = 65484,
             ["fields"] = {{
@@ -124,4 +124,3 @@ local requestwebhook = syn.request({
     })
 })
 --//END  
-
