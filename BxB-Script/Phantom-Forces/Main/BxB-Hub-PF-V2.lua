@@ -13,12 +13,12 @@ local LIST = 12
 local IMAGE = 13
 local TEXTBOX = 14
 
-if not BBOT then
-	BBOT = { username = "Developer : Boom WrkSs" }
+if not BxB then
+	BxB = { username = "Cummunity" }
 end
 local menu
 
-local MenuName = isfile("BxBPhantom/menuname.txt") and readfile("BxBPhantom/menuname.txt") or nil
+local MenuName = isfile("BxB_Save_System/Phantom Force/menuname.txt") and readfile("BxB_Save_System/Phantom Force/menuname.txt") or nil
 local loadstart = tick()
 
 local customChatSpam = {}
@@ -469,25 +469,25 @@ local function GetEvent(eventname)
 	return allevent[eventname]
 end
 
-local BBOT_IMAGES = {}
+local BxB_IMAGES = {}
 MultiThreadList({
 	function()
-		BBOT_IMAGES[1] = game:HttpGet("https://i.imgur.com/9NMuFcQ.png")
+		BxB_IMAGES[1] = game:HttpGet("https://i.imgur.com/9NMuFcQ.png")
 	end,
 	function()
-		BBOT_IMAGES[2] = game:HttpGet("https://i.imgur.com/jG3NjxN.png")
+		BxB_IMAGES[2] = game:HttpGet("https://i.imgur.com/jG3NjxN.png")
 	end,
 	function()
-		BBOT_IMAGES[3] = game:HttpGet("https://i.imgur.com/2Ty4u2O.png")
+		BxB_IMAGES[3] = game:HttpGet("https://i.imgur.com/2Ty4u2O.png")
 	end,
 	function()
-		BBOT_IMAGES[4] = game:HttpGet("https://i.imgur.com/kNGuTlj.png")
+		BxB_IMAGES[4] = game:HttpGet("https://i.imgur.com/kNGuTlj.png")
 	end,
 	function()
-		BBOT_IMAGES[5] = game:HttpGet("https://i.imgur.com/OZUR3EY.png")
+		BxB_IMAGES[5] = game:HttpGet("https://i.imgur.com/OZUR3EY.png")
 	end,
 	function()
-		BBOT_IMAGES[6] = game:HttpGet("https://i.imgur.com/3HGuyVa.png")
+		BxB_IMAGES[6] = game:HttpGet("https://i.imgur.com/3HGuyVa.png")
 	end,
 })
 
@@ -495,7 +495,7 @@ local loaded = {}
 do
 	local function Loopy_Image_Checky()
 		for i = 1, 6 do
-			local v = BBOT_IMAGES[i]
+			local v = BxB_IMAGES[i]
 			if v == nil then
 				return true
 			elseif not loaded[i] then
@@ -551,25 +551,25 @@ NETWORK:SetOutgoingKBPSLimit(0)
 
 setfpscap(getgenv().maxfps or 144)
 
-if not isfolder("BxBPhantom") then
-	makefolder("BxBPhantom")
+if not isfolder("BxB_Save_System/Phantom Force") then
+	makefolder("BxB_Save_System/Phantom Force")
 end
 
 do -- Files
-	if not isfile("BxBPhantom/relations.bb") then
-		writefile("BxBPhantom/relations.bb", "friends:\npriority:")
+	if not isfile("BxB_Save_System/Phantom Force/relations.bb") then
+		writefile("BxB_Save_System/Phantom Force/relations.bb", "friends:\npriority:")
 	end
 
-    if not isfile("BxBPhantom/chatspam.bb") then
-        writefile("BxBPhantom/chatspam.bb",
-            [[BEACH BOAT ON TOP
-BBOT NEW UPDATE 2058 ةشساشممشا
+    if not isfile("BxB_Save_System/Phantom Force/chatspam.bb") then
+        writefile("BxB_Save_System/Phantom Force/chatspam.bb",
+            [[BxB.xyz ON TOP
+BxB NEW UPDATE 2058 ةشساشممشا
 ؤقهحلاخف خهى فخح غثشا ةغ لاقخ
 beach boat does not miss]])
     end
 
-    if not isfile("BxBPhantom/killsay.bb") then
-        writefile("BxBPhantom/killsay.bb",
+    if not isfile("BxB_Save_System/Phantom Force/killsay.bb") then
+        writefile("BxB_Save_System/Phantom Force/killsay.bb",
             [[Imagine Dying To Me [name]
 So bad [name]
 [name] how is your [hitbox] feeling?
@@ -578,22 +578,22 @@ sucks to suck [name]
 [name] get better]])
     end
 
-    if not isfolder("BxBPhantom/" .. menu.game) then
-        makefolder("BxBPhantom/" .. menu.game)
+    if not isfolder("BxB_Save_System/Phantom Force/Config") then
+        makefolder("BxB_Save_System/Phantom Force/Config")
     end
 
-    if not isfile("BxBPhantom/" .. menu.game .. "/Default.bb") then
-        writefile("BxBPhantom/" .. menu.game .. "/Default.bb", "")
+    if not isfile("BxB_Save_System/Phantom Force/Config/Default.bb") then
+        writefile("BxB_Save_System/Phantom Force/Config/Default.bb", "")
     end
 end
 
 do
-    local customtxt = readfile("BxBPhantom/chatspam.bb")
+    local customtxt = readfile("BxB_Save_System/Phantom Force/chatspam.bb")
     for s in customtxt:gmatch("[^\n]+") do
         table.insert(customChatSpam, s)
     end
 
-    customtxt = readfile("BxBPhantom/killsay.bb")
+    customtxt = readfile("BxB_Save_System/Phantom Force/killsay.bb")
     for s in customtxt:gmatch("[^\n]+") do
         table.insert(customKillSay, s)
     end
@@ -603,7 +603,7 @@ local configs = {}
 
 local function GetConfigs()
 	local result = {}
-	local directory = "BxBPhantom\\" .. menu.game
+	local directory = "BxB_Save_System/Phantom Force\\Config"
 	for k, v in pairs(listfiles(directory)) do
 		local clipped = v:sub(#directory + 2)
 		if clipped:sub(#clipped - 2) == ".bb" then
@@ -613,7 +613,7 @@ local function GetConfigs()
 		end
 	end
 	if #result <= 0 then
-		writefile("BxBPhantom/" .. menu.game .. "/Default.bb", "")
+		writefile("BxB_Save_System/Phantom Force/Config/Default.bb", "")
 	end
 	return result
 end
@@ -624,14 +624,14 @@ local LIGHTING = game:GetService("Lighting")
 local stats = game:GetService("Stats")
 
 local function UnpackRelations()
-	local str = isfile("BxBPhantom/relations.bb") and readfile("BxBPhantom/relations.bb") or nil
+	local str = isfile("BxB_Save_System/Phantom Force/relations.bb") and readfile("BxB_Save_System/Phantom Force/relations.bb") or nil
 	local final = {
 		friends = {},
 		priority = {},
 	}
 	if str then
 		if str:find("bb:{{") then
-			writefile("BxBPhantom/relations.bb", "friends:\npriority:")
+			writefile("BxB_Save_System/Phantom Force/relations.bb", "friends:\npriority:")
 			return
 		end
 
@@ -707,7 +707,7 @@ local function WriteRelations()
 		end
 	end
 
-	writefile("BxBPhantom/relations.bb", str)
+	writefile("BxB_Save_System/Phantom Force/relations.bb", str)
 end
 CreateThread(function()
 	if (not menu or not menu.GetVal) then
@@ -1565,7 +1565,7 @@ do
 		Draw:MenuBigText(text, true, false, x + size + 8, y, tab)
 		table.insert(temptable, tab[#tab])
 
-		Draw:MenuImage(true, BBOT_IMAGES[5], x + 2, y + 2, size, size, 1, tab)
+		Draw:MenuImage(true, BxB_IMAGES[5], x + 2, y + 2, size, size, 1, tab)
 		table.insert(temptable, tab[#tab])
 
 		return temptable
@@ -2582,7 +2582,7 @@ function menu.Initialize(menutable)
 	ColorpickerOutline(false, 11, 24, 158, 158, { 0, 0, 0, 255 }, cp.drawings)
 	ColorpickerRect(false, 12, 25, 156, 156, { 0, 0, 0, 255 }, cp.drawings)
 	local maincolor = cp.drawings[#cp.drawings]
-	ColorpickerImage(false, BBOT_IMAGES[1], 12, 25, 156, 156, 1, cp.drawings)
+	ColorpickerImage(false, BxB_IMAGES[1], 12, 25, 156, 156, 1, cp.drawings)
 
 	--https://i.imgur.com/jG3NjxN.png
 	local alphabar = {}
@@ -2590,18 +2590,18 @@ function menu.Initialize(menutable)
 	table.insert(alphabar, cp.drawings[#cp.drawings])
 	ColorpickerOutline(false, 11, 190, 158, 12, { 0, 0, 0, 255 }, cp.drawings)
 	table.insert(alphabar, cp.drawings[#cp.drawings])
-	ColorpickerImage(false, BBOT_IMAGES[2], 12, 191, 159, 10, 1, cp.drawings)
+	ColorpickerImage(false, BxB_IMAGES[2], 12, 191, 159, 10, 1, cp.drawings)
 	table.insert(alphabar, cp.drawings[#cp.drawings])
 
 	ColorpickerOutline(false, 176, 23, 14, 160, { 30, 30, 30, 255 }, cp.drawings)
 	ColorpickerOutline(false, 177, 24, 12, 158, { 0, 0, 0, 255 }, cp.drawings)
 	--https://i.imgur.com/2Ty4u2O.png
-	ColorpickerImage(false, BBOT_IMAGES[3], 178, 25, 10, 156, 1, cp.drawings)
+	ColorpickerImage(false, BxB_IMAGES[3], 178, 25, 10, 156, 1, cp.drawings)
 
 	ColorpickerText("New Color", false, false, 198, 23, cp.drawings)
 	ColorpickerOutline(false, 197, 37, 75, 40, { 30, 30, 30, 255 }, cp.drawings)
 	ColorpickerOutline(false, 198, 38, 73, 38, { 0, 0, 0, 255 }, cp.drawings)
-	ColorpickerImage(false, BBOT_IMAGES[4], 199, 39, 71, 36, 1, cp.drawings)
+	ColorpickerImage(false, BxB_IMAGES[4], 199, 39, 71, 36, 1, cp.drawings)
 
 	ColorpickerRect(false, 199, 39, 71, 36, { 255, 0, 0, 255 }, cp.drawings)
 	local newcolor = cp.drawings[#cp.drawings]
@@ -2613,7 +2613,7 @@ function menu.Initialize(menutable)
 	ColorpickerText("Old Color", false, false, 198, 77, cp.drawings)
 	ColorpickerOutline(false, 197, 91, 75, 40, { 30, 30, 30, 255 }, cp.drawings)
 	ColorpickerOutline(false, 198, 92, 73, 38, { 0, 0, 0, 255 }, cp.drawings)
-	ColorpickerImage(false, BBOT_IMAGES[4], 199, 93, 71, 36, 1, cp.drawings)
+	ColorpickerImage(false, BxB_IMAGES[4], 199, 93, 71, 36, 1, cp.drawings)
 
 	ColorpickerRect(false, 199, 93, 71, 36, { 255, 0, 0, 255 }, cp.drawings)
 	local oldcolor = cp.drawings[#cp.drawings]
@@ -2975,11 +2975,11 @@ function menu.Initialize(menutable)
 
 			customChatSpam = {}
 			customKillSay = {}
-			local customtxt = readfile("BxBPhantom/chatspam.bb")
+			local customtxt = readfile("BxB_Save_System/Phantom Force/chatspam.bb")
 			for s in customtxt:gmatch("[^\n]+") do -- I'm Love String:Match
 				table.insert(customChatSpam, s)
 			end
-			customtxt = readfile("BxBPhantom/killsay.bb")
+			customtxt = readfile("BxB_Save_System/Phantom Force/killsay.bb")
 			for s in customtxt:gmatch("[^\n]+") do -- I'm Love String:Match
 				table.insert(customKillSay, s)
 			end
@@ -3699,13 +3699,13 @@ function menu.Initialize(menutable)
 	end
 	function menu.saveconfig()
 		local figgy = SaveCurSettings()
-		writefile("BxBPhantom/".. menu.game.. "/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb", figgy)
+		writefile("BxB_Save_System/Phantom Force/Config/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb", figgy)
 		CreateNotification('Saved "' .. menu.options["Settings"]["Configuration"]["ConfigName"][1] .. '.bb"!')
 		UpdateConfigs()
 	end
 
 	function menu.loadconfig()
-		local configname = "BxBPhantom/".. menu.game.. "/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb"
+		local configname = "BxB_Save_System/Phantom Force/Config/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb"
 		if not isfile(configname) then
 			CreateNotification('"'.. menu.options["Settings"]["Configuration"]["ConfigName"][1].. '.bb" is not a valid config.')
 			return
@@ -3750,7 +3750,7 @@ function menu.Initialize(menutable)
 		elseif bp == menu.options["Settings"]["Configuration"]["Save Config"] then
 			menu.saveconfig()
 		elseif bp == menu.options["Settings"]["Configuration"]["Delete Config"] then
-			delfile("BxBPhantom/".. menu.game.. "/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb")
+			delfile("BxB_Save_System/Phantom Force/Config/".. menu.options["Settings"]["Configuration"]["ConfigName"][1].. ".bb")
 			CreateNotification('Deleted "' .. menu.options["Settings"]["Configuration"]["ConfigName"][1] .. '.bb"!')
 			UpdateConfigs()
 		elseif bp == menu.options["Settings"]["Configuration"]["Load Config"] then
@@ -5699,7 +5699,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 		Draw:FilledCircle(false, 60, 60, 32, 1, 20, { 20, 20, 20, 215 }, nade_esp[1])
 		Draw:Circle(false, 60, 60, 30, 1, 20, { 50, 50, 50, 255 }, nade_esp[2])
 		Draw:OutlinedText("", 2, false, 20, 20, 13, true, { 255, 255, 255, 255 }, { 0, 0, 0 }, nade_esp[3])
-		Draw:Image(false, BBOT_IMAGES[6], 20, 20, 23, 30, 1, nade_esp[4])
+		Draw:Image(false, BxB_IMAGES[6], 20, 20, 23, 30, 1, nade_esp[4])
 		--Draw:OutlinedText("NADE", 2, false, 20, 20, 13, true, {255, 255, 255, 255}, {0, 0, 0}, nade_esp[4])
 
 		Draw:OutlinedRect(false, 20, 20, 32, 6, { 50, 50, 50, 255 }, nade_esp[5])
@@ -6210,7 +6210,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 
 		setupvalue(client.call, 1, funcs)
 
-		for k, v in next, getinstances() do -- hacky way of getting rid of bbot adornments and such, but oh well lol it works
+		for k, v in next, getinstances() do -- hacky way of getting rid of BxB adornments and such, but oh well lol it works
 			if v.ClassName:match("Adornment") then
 				v.Visible = false
 				v:Destroy()
@@ -6400,14 +6400,14 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 		["lastchoice"] = 0,
 		[1] = nil,
 		[2] = {
-			"BBOT ON TOP ",
-			"BBOT ON TOP 🔥🔥🔥🔥",
-			"BBot top i think ",
-			"bbot > all ",
-			"BBOT > ALL🧠 ",
-			"WHAT SCRIPT IS THAT???? BBOT! ",
+			"BxB.xyz ON TOP ",
+			"BxB.xyz ON TOP 🔥🔥🔥🔥",
+			"BxB.xyz top i think ",
+			"BxB.xyz > all ",
+			"BxB.xyz > ALL🧠 ",
+			"WHAT SCRIPT IS THAT???? BxB.xyz! ",
 			"日工tch ",
-			".gg/bbot",
+			".gg/BxB.xyz",
 		},
 		[3] = {
 			"but doctor prognosis: OWNED ",
@@ -6426,10 +6426,10 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"坐下，一直保持着安静的状态。 谁把他拥有的东西给了他，所以他不那么爱欠债务，却拒  参加锻炼，这让他爱得更少了",
 			", yīzhí bǎochízhe ānjìng de zhuàngtài. Shéi bǎ tā yǒngyǒu de dōngxī gěile tā, suǒyǐ tā bù nàme ài qiàn zhàiwù, què jùjué cānjiā duànliàn, z",
 			"他，所以他不那r给了他东西给了他爱欠s，却拒绝参加锻炼，这让他爱得更UGT少了",
-			"bbot 有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
+			"BxB.xyz 有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
 			"wocky slush他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼",
-			"坐下，一直保持着安静的状态bbot 谁把他拥有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
-			"免费手榴弹bbot hack绕过作弊工作Phantom Force roblox aimbot瞄准无声目标绕过2020工作真正免费下载和使用",
+			"坐下，一直保持着安静的状态BxB.xyz 谁把他拥有的东西给了他，所以他不那rblx trader captain么有的东西给了他爱欠债了他他squilliam拥有的东西给爱欠绝参加锻squidward炼，务，却拒绝参加锻炼，这让他爱得更UGT少了",
+			"免费手榴弹BxB.xyz hack绕过作弊工作Phantom Force roblox aimbot瞄准无声目标绕过2020工作真正免费下载和使用",
 			"zal發明了roblox汽車貿易商的船長ro blocks，並將其洩漏到整個宇宙，還修補了虛假的角神模式和虛假的身體，還發明了基於速度的AUTOWALL和無限制的自動壁紙遊戲 ",
 			"彼が誤って禁止されたためにファントムからautowallgamingを禁止解除する請願とそれはでたらめですそれはまったく意味がありませんなぜあなたは合法的なプレーヤーを禁止するのですか ",
 			"ジェイソンは私が神に誓う女性的な男の子ではありません ",
@@ -6452,7 +6452,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"brb taking a nap 💤💤💤 ",
 			"gonna go take a walk 🚶‍♂️🚶‍♀️🚶‍♂️🚶‍♀️ ",
 			"low orbit ion cannon booting up ",
-			"how does it feel to not have bbot 🤣🤣🤣😂😂😹😹😹 ",
+			"how does it feel to not have BxB.xyz 🤣🤣🤣😂😂😹😹😹 ",
 			"im a firing my laza! 🙀🙀🙀 ",
 			"😂😂😂😂😂GAMING CHAIR😂😂😂😂😂",
 			"retardheadass",
@@ -6464,7 +6464,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"THE AMOUNT THAT I CARE --> 🤏 ",
 			"🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏🤏",
 			"SORRY I HURT YOUR ROBLOX EGO BUT LOOK -> 🤏 I DON'T CARE ",
-			'table.find(charts, "any other script other than bbot") -> nil 💵💵💵',
+			'table.find(charts, "any other script other than BxB.xyz") -> nil 💵💵💵',
 			"LOL WHAT ARE YOU SHOOTING AT BRO ",
 			"🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥",
 			"BRO UR SHOOTING AT LIKE NOTHING LOL UR A CLOWN",
@@ -6517,7 +6517,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"🤏 <-- just to elaborate that i have no care for this situation or you at all, kid (not that you would understand anyways, you're too stupid to understand what i'm saying to begin with)",
 			"y",
 			"b",
-			"before bbot 😭 📢				after bbot 😁😁😜					don't be like the person who doesn't have bbot",
+			"before BxB.xyz 😭 📢				after BxB.xyz 😁😁😜					don't be like the person who doesn't have BxB.xyz",
 			"							MADE YOU LOOK ",
 			"							LOOK BRO LOOK LOOK AT ME ",
 			"	A	",
@@ -6526,12 +6526,12 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"																																																																																																																								WATCH YOUR STEP KID",
 			"BROOOO HE HAS																										GOD MODE BRO HE HAS GOD MODE 🚶‍♀️🚶‍♀️🚶‍♀️😜😂😂🤦‍♂️🤦‍♂️😭😭😭👶",
 			'"guys what hub has auto shooting" 																										',
-			"god i wish i had bbot..... 🙏🙏🥺🥺🥺													plzzzzz brooooo 🛐 GIVE IT🛐🛐",
+			"god i wish i had BxB.xyz..... 🙏🙏🥺🥺🥺													plzzzzz brooooo 🛐 GIVE IT🛐🛐",
 			"buh bot 												",
 			"votekick him!!!!!!! 😠 vk VK VK VK VOTEKICK HIM!!!!!!!!! 😠 😢 VOTE KICK !!!!! PRESS Y WHY DIDNT U PRESS Y LOL!!!!!! 😭 ", -- shufy made this
-			"Bbot omg omggg omggg its BBot its BBOt OMGGG!!!  🙏🙏🥺🥺😌😒😡",
-			"HOw do you get ACCESS to this BBOT ", -- end
-			"I NEED ACCESS 🔑🔓 TO BBOT 🤖📃📃📃 👈 THIS THING CALLED BBOT SCRIPT, I NEED IT ",
+			"BxB.xyz omg omggg omggg its BxB.xyz its BxB.xyz OMGGG!!!  🙏🙏🥺🥺😌😒😡",
+			"HOw do you get ACCESS to this BxB.xyz ", -- end
+			"I NEED ACCESS 🔑🔓 TO BxB.xyz 🤖📃📃📃 👈 THIS THING CALLED BxB.xyz SCRIPT, I NEED IT ",
 			'"this god mode guy is annoying", Pr0blematicc says as he loses roblox hvh ',
 			"you can call me crimson chin 🦹‍♂️🦹‍♂️ cause i turned your screen red 🟥🟥🟥🟥 									",
 			"clipped that 🤡 ",
@@ -6539,7 +6539,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 			"nodus client slime castle crashers minecraft dupeing hack wizardhax xronize grief ... Tlcharger minecraft crack Oggi spiegheremo come creare un ip grabber!",
 			"Off synonyme syls midge, smiled at mashup 2 mixed in key free download procom, ... Okay, love order and chaos online gameplayer hack amber forcen ahdistus",
 			"ˢᵗᵃʸ ᵐᵃᵈ ˢᵗᵃʸ ᵇᵇᵒᵗˡᵉˢˢ $ ",
-			"bbot does not relent ",
+			"BxB.xyz does not relent ",
 		},
 	}
 	--local
@@ -6552,14 +6552,14 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 		"Hack", "Unlock", "Cheat", "Roblox", "Mod Menu", "Mod", "Menu", "God Mode", "Kill All", "Silent", "Silent Aim", "X Ray", "Aim", "Bypass", "Glitch", "Wallhack", "ESP", "Infinite", "Infinite Credits",
 		"XP", "XP Hack", "Infinite Credits", "Unlook All", "Server Backdoor", "Serverside", "2021", "Working", "(WORKING)", "瞄准无声目标绕过", "Gamesense", "Onetap", "PF Exploit", "Phantom Force",
 		"Cracked", "TP Hack", "PF MOD MENU", "DOWNLOAD", "Paste Bin", "download", "Download", "Teleport", "100% legit", "100%", "pro", "Professional", "灭性的神经",
-		"No Virus All Clean", "No Survey", "No Ads", "Free", "Not Paid", "Real", "REAL 2020", "2020", "Real 2017", "BBot", "Cracked", "BBOT CRACKED by vw", "2014", "desuhook crack",
-		"Aimware", "Hacks", "Cheats", "Exploits", "(FREE)", "🕶😎", "😎", "😂", "😛", "paste bin", "bbot script", "hard code", "正免费下载和使", "SERVER BACKDOOR",
+		"No Virus All Clean", "No Survey", "No Ads", "Free", "Not Paid", "Real", "REAL 2020", "2020", "Real 2017", "BxB.xyz", "Cracked", "BxB.xyz CRACKED by vw", "2014", "desuhook crack",
+		"Aimware", "Hacks", "Cheats", "Exploits", "(FREE)", "🕶😎", "😎", "😂", "😛", "paste bin", "BxB.xyz script", "hard code", "正免费下载和使", "SERVER BACKDOOR",
 		"Secret", "SECRET", "Unleaked", "Not Leaked", "Method", "Minecraft Steve", "Steve", "Minecraft", "Sponge Hook", "Squid Hook", "Script", "Squid Hack",
 		"Sponge Hack", "(OP)", "Verified", "All Clean", "Program", "Hook", "有毁灭", "desu", "hook", "Gato Hack", "Blaze Hack", "Fuego Hack", "Nat Hook",
 		"vw HACK", "Anti Votekick", "Speed", "Fly", "Big Head", "Knife Hack", "No Clip", "Auto", "Rapid Fire",
 		"Fire Rate Hack", "Fire Rate", "God Mode", "God", "Speed Fly", "Cuteware", "Knife Range", "Infinite XRay", "Kill All", "Sigma", "And", "LEAKED",
 		"🥳🥳🥳", "RELEASE", "IP RESOLVER", "Infinite Wall Bang", "Wall Bang", "Trickshot", "Sniper", "Wall Hack", "😍😍", "🤩", "🤑", "😱😱", "Free Download EHUB", "Taps", "Owns",
-		"Owns All", "Trolling", "Troll", "Grief", "Kill", "弗吉艾尺艾杰开", "BBOT Developers", "Logic", "And", "and", "Glitch",
+		"Owns All", "Trolling", "Troll", "Grief", "Kill", "弗吉艾尺艾杰开", "BxB.xyz Developers", "Logic", "And", "and", "Glitch",
 		"Server Hack", "Babies", "Children", "TAP", "Meme", "MEME", "Laugh", "LOL!", "Lol!", "ROFLSAUCE", "Rofl", ";p", ":D", "=D", "xD", "XD", "=>", "₽", "$", "8=>", "😹😹😹", "🎮🎮🎮", "🎱", "⭐", "✝",
 		"Ransomware", "Malware", "SKID", "Pasted vw", "Encrypted", "Brute Force", "Cheat Code", "Hack Code", ";v", "No Ban", "Bot", "Editing", "Modification", "injection", "Bypass Anti Cheat",
 		"铜色类别创意", "Cheat Exploit", "Hitbox Expansion", "Cheating AI", "Auto Wall Shoot", "Konami Code", "Debug", "Debug Menu", "🗿", "£", "¥", "₽", "₭", "€", "₿", "Meow", "MEOW", "meow",
@@ -7688,7 +7688,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 		local hitscanPoints = { 0, 0, 0, 0, 0, 0, 0, 0 }
 		local hitboxShiftPoints = { 0, 0, 0, 0, 0 }
 		local hitboxShiftAmount = { 0, 0 }
-		if BBOT.username == "dev" then
+		if BxB.username == "Community" then
 			StatMenuRendered:connect(function(text)
 				text.Text ..= string.format("\n--menu-- %d %d %d", menu.inmenu and 1 or 0, menu.inmiddlemenu and 1 or 0, menu.intabs and 1 or 0)
 				text.Text ..= string.format("\n--hitscan-- %d %d %d %d %d %d %d %d", unpack(hitscanPoints))
@@ -13018,7 +13018,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 										type = TOGGLE,
 										name = "Kill Say",
 										value = false,
-										tooltip = "Kill say messages, located in BxBPhantom/killsay.bb \n[name] is the target's name\n[weapon] is the weapon used\n[hitbox] says head or body depending on where you shot the player",
+										tooltip = "Kill say messages, located in BxB_Save_System/Phantom Force/killsay.bb \n[name] is the target's name\n[weapon] is the weapon used\n[hitbox] says head or body depending on where you shot the player",
 									},
 									{
 										type = DROPBOX,
@@ -13035,7 +13035,7 @@ if menu.game == "Phantom Forces" then --SECTION PF BEGIN
 											"Custom",
 											"Custom Combination",
 										},
-										tooltip = "Spams chat, Custom options are located in the BxBPhantom/chatspam.bb",
+										tooltip = "Spams chat, Custom options are located in the BxB_Save_System/Phantom Force/chatspam.bb",
 									},
 									{
 										type = TOGGLE,
@@ -13375,12 +13375,12 @@ K/D: %d/%d
 							deaths
 						)
 						if textonly == nil then
-							plistinfo[2].Data = BBOT_IMAGES[5]
+							plistinfo[2].Data = BxB_IMAGES[5]
 
 							plistinfo[2].Data = game:HttpGet(string.format("https://www.roblox.com/headshot-thumbnail/image?userId=%s&width=100&height=100&format=png", player.UserId))
 						end
 					else
-						plistinfo[2].Data = BBOT_IMAGES[5]
+						plistinfo[2].Data = BxB_IMAGES[5]
 						plistinfo[1].Text = "No Player Selected"
 					end
 				end
@@ -13477,7 +13477,7 @@ end
 
 do
 	local wm = menu.watermark
-	wm.textString = " | " .. BBOT.username .. " | " .. os.date("%b. %d, %Y")
+	wm.textString = " | " .. BxB.username .. " | " .. os.date("%b. %d, %Y")
 	wm.pos = Vector2.new(50, 9)
 	wm.text = {}
 	local fulltext = menu.options["Settings"]["Cheat Settings"]["MenuName"][1] .. wm.textString
