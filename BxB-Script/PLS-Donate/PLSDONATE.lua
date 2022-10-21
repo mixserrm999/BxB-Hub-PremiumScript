@@ -71,8 +71,8 @@ queueonteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/BxB-
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/PLS-Donate/Lib.lua"))()
 getgenv().settings = {}
 --Load Settings
-if isfile("BxB-PLS-Donate.txt") then
-    getgenv().settings = httpservice:JSONDecode(readfile('BxB-PLS-Donate.txt'))
+if isfile("BxB_Save_System/PLS DONATE/setting/config.json") then
+    getgenv().settings = httpservice:JSONDecode(readfile('BxB_Save_System/PLS DONATE/setting/config.json'))
 end
 local sNames = {"textUpdateToggle", "textUpdateDelay", "serverHopToggle", "serverHopDelay", "hexBox", "goalBox", "webhookToggle", "webhookBox", "danceToggle", "thanksMessage", "signToggle", "customBoothText", "signUpdateToggle", "signText", "signHexBox", "autoThanks", "autoBeg", "begMessage", "begDelay", "fpsLimit", "render"}
 local sValues = {true, 30, true, 30, "#32CD32", 5, false, "", false, {"Thank you", "Thanks!", "ty :)", "tysm!"}, false, "GOAL: $C / $G", false, "your text here", "#ffffff", true, false, {"Please donate", "I'm so close to my goal!", "donate to me", "please"}, 300, 60, false}
@@ -82,7 +82,7 @@ if #getgenv().settings ~= sNames then
             getgenv().settings[v] = sValues[i]
         end
     end
-    writefile('BxB-PLS-Donate.txt', httpservice:JSONEncode(getgenv().settings))
+    writefile('BxB_Save_System/PLS DONATE/setting/config.json', httpservice:JSONEncode(getgenv().settings))
 end
 
 --Save Settings
@@ -90,7 +90,7 @@ local settingsLock = true
 local function saveSettings()
     if settingsLock == false then
         print('Settings saved.')
-        writefile('BxB-PLS-Donate.txt', httpservice:JSONEncode(getgenv().settings))
+        writefile('BxB_Save_System/PLS DONATE/setting/config.json', httpservice:JSONEncode(getgenv().settings))
     end
 end
 
