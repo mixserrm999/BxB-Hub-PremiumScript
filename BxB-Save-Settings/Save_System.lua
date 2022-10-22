@@ -1,3 +1,12 @@
+--[[
+if not isfolder("BxB_Save_System/GAME NAME/TITLE") then
+	makefolder("BxB_Save_System/GAME NAME/TITLE")
+end
+if not isfile("BxB_Save_System/GAME NAME/TITLE/config.json") then
+    writefile("BxB_Save_System/GAME NAME/TITLE/config.json","")
+end
+]]
+
 --// Check Load
 repeat wait() until game:IsLoaded()
 
