@@ -12,7 +12,7 @@ if options.SaveLogs then
     writefile(logname, string.format("Http Logs from %s\n\n", os.date("%d/%m/%y"))) 
 end;
 
-local Serializer = loadstring(game:HttpGet("https://raw.githubusercontent.com/NotDSF/leopard/main/rbx/leopard-syn.lua"))();
+local Serializer = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/Console/HTTP/leopart-synx.lua"))();
 local clonef = clonefunction;
 local pconsole = clonef(rconsoleprint);
 local format = clonef(string.format);
