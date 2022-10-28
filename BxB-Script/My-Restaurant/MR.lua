@@ -1,7 +1,18 @@
+local fpsBoost = fpsBoost or false
+
+
 if not getconnections then return end
 for i,v in next, getconnections(game.Players.LocalPlayer.Idled) do
-v:Disable()
+    v:Disable()
 end
+
+local c = workspace:WaitForChild("__DEBRIS",10)
+c.ChildAdded:Connect(function(ch)
+    task.wait()
+    if fpsBoost then
+        ch:Destroy()
+    end
+end)
 
 local petNet = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/BxB-Script/My-Restaurant/Net.lua"))()
 
@@ -1056,7 +1067,7 @@ function Waiter:CheckForFoodDelivery()
 			
 			-- grab some food off of the top of the queue
 			local selectedFoodOrder = orderStand.stateData.foodReadyList[1]
-			selectedFoodOrder.isGold = orderStand:IsGoldOrderStand() and math.random() < 0.05
+			selectedFoodOrder.isGold = true
 			table.remove(orderStand.stateData.foodReadyList, 1)
 			if selectedFoodOrder.isGold then
 				_L.SFX.Play(5370840758, orderStand.model.PrimaryPart)
@@ -1523,13 +1534,8 @@ function Bakery:AddCustomersToQueueIfNecessary(kickCustomerIfNecessary, UIDBatch
 			end
 			-- 1% chance for haunted customer, otherwise corrupted VIP
 			if forceShadowCustomer then
-				if true then
-					UIDBatch[i].ID = "25"
-					shadowOverride[i] = overrideUID
-				else
 					UIDBatch[i].ID = "26"
 					corruptedVIPOverride[i] = overrideUID
-				end
 			end
 		end
 		
@@ -1766,3 +1772,52 @@ function Bakery:AddCustomersToQueueIfNecessary(kickCustomerIfNecessary, UIDBatch
 	return #selectedSeatGroup, vipOverride, pirateOverride, youtuberOverride, shadowOverride, corruptedVIPOverride, santaOverride, elfOverride, johnDoeOverride, treeTable
 
 end
+
+
+local bakeryData = _L.Variables.UIDData
+if not bakeryData then
+    repeat wait() bakeryData = _L.Variables.UIDData until bakeryData
+end
+
+--"🐈"-bluwu
+local Wells = {"101","49","50"}
+local Slots = {"57"}
+local UNIT_SECOND = 1
+local UNIT_MINUTE = UNIT_SECOND * 60
+local SLOT_REFRESH = UNIT_MINUTE * 10
+
+local function useWell(wellUID, wellId)
+    local event = "RequestWishingWellUsage"
+    if wellId == "101" then
+        event = "RequestHauntedWishingWellUsage"
+    end
+    _L.Network.Fire(event,wellUID)
+end
+coroutine.wrap(function()
+    while true do
+        for i,v in next, bakeryData["Furniture"] do
+            local ID = v.ID
+            if ID and table.find(Wells,ID) and v.ClassName == "Furniture" then
+                task.spawn(function()
+                    local event = "GetWishingWellRefreshTime"
+                    if ID == "101" then
+                        event = "GetHauntedWishingWellRefreshTime"
+                    end
+                    local cooldown = _L.Network.Invoke(event,v.UID)
+                    if not isOnCooldown then
+                        useWell(v.UID, ID)
+                    end
+                end)
+            end
+            if ID and table.find(Slots,ID) then
+                task.spawn(function()
+                    local cooldown = _L.Network.Invoke("GetSlotRefreshTime")
+                    if cooldown == 0 then
+                        _L.Network.Fire("RequestSlotUsage", v.UID)
+                    end
+                end)
+            end
+        end
+		task.wait(3)
+	end
+end)()
