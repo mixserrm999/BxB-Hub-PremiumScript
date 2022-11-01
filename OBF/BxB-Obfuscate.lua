@@ -1,6 +1,6 @@
 
 --[[ ========== Tittle ========== ]] --
-local Tittle = "--// Obfuscated with Boom WrkSs 2 \n--// Social FB : Boom WrkSs \n\n"
+local Tittle = "_, Protected_By_BxBxyz_Obfuscator, Discord = 'Secret...'\n\n"
 --[[ ========== Readfile ==========]]--
 if not isfile("BxB.xyz_Code.lua") then
     writefile("BxB.xyz_Code.lua","--// Your code here")
@@ -80,7 +80,7 @@ function Obfuscate(b)
                                                                                                                                                         "IllIIllIIllIII(IllIIIllIIIIllI(IlIlIlIlIlIlIlIlII,IIIIIIIIllllllllIIIIIIII))()"
 --    print(x)
     setclipboard(x)
-    writefile("BxB_Obfuscate_V2.txt", ""..x)
+    writefile("BxB_Obfuscate_V2.lua", ""..x)
 end
 do
     Obfuscate(Script)
