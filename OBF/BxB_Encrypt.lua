@@ -1,11 +1,14 @@
 --// put your code in "BxB.xyz_Code.lua" (local file workspace)
 --// Wait after  5 - 10 sec after execute again
+
 if not isfile("BxB.xyz_Code.lua") then
     writefile("BxB.xyz_Code.lua","--// Your code here")
 end
 
 local Script = readfile("BxB.xyz_Code.lua")
+
 --local Script = [[]]
+
 function Encode(Text)
     Text = tostring(Text)
     local Table = {}
@@ -43,8 +46,8 @@ function Encode(Text)
 end
 -- ENCODE
 local Encoded = Encode(Script)
-local Encrypted  =[[--// BxB.xyz Encrypted Free/Premium
---// Credit : B O O M#4134
+local Encrypted  =[[_, Protected_By_BxBxyz_Enctypted, Discord = 'Secret...'
+
 local BxBEncrypted = ]].."table.concat({"..Encoded.."})"..[[ function decode(str) local function BxB_to_string(bin) return string.char(tonumber(bin, 2));end;return (str:gsub("(".. ("[01]"):rep(8) .. ")", BxB_to_string));end;local BxB = BxBEncrypted _G.EncodedBxB = decode(BxB);loadstring(_G.EncodedBxB)()]]
 
 writefile("BxB.xyz_Encryp.lua",Encrypted)
