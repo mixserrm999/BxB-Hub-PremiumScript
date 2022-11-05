@@ -1,12 +1,12 @@
-local valid = isfile("pingcounter.txt")
+local valid = isfile("PingCounter.txt")
 
 if valid ~= true then
-    writefile("pingcounter.txt", "true")
+    writefile("PingCounter.txt", "true")
 end
 
 local textlab = Instance.new("TextLabel")
 local UserInputService = game:GetService("UserInputService")
-local contents = readfile("pingcounter.txt")
+local contents = readfile("PingCounter.txt")
 
 textlab.Size = UDim2.new(0, 200, 0, 28)
 textlab.BackgroundTransparency = 1
@@ -14,7 +14,7 @@ textlab.TextColor3 = Color3.new(1, 1, 1)
 textlab.TextStrokeTransparency = 0
 textlab.TextStrokeColor3 = Color3.new(0.24, 0.24, 0.24)
 textlab.Font = Enum.Font.SourceSans
-textlab.TextSize = 30
+textlab.TextSize = 18
 textlab.Text = "nil"
 textlab.BackgroundColor3 = Color3.new(0, 0, 0)
 textlab.Position = UDim2.new(0.89, 0, 0.580, 0)
@@ -32,10 +32,10 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
         if pressing == true then
             if textlab.Visible == true then
                 textlab.Visible = false
-                writefile("pingcounter.txt", "false")
+                writefile("PingCounter.txt", "false")
             else
                 textlab.Visible = true
-                writefile("pingcounter.txt", "true")
+                writefile("PingCounter.txt", "true")
             end
         end 
     end
@@ -65,4 +65,3 @@ spawn(function()
     until textlab == nil
 end)
 
-print ("ping")
