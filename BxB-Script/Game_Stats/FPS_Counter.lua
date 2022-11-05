@@ -20,7 +20,7 @@ P I N G   C O U N T E R   >   F P S   C O U N T E R
 	textlab.TextStrokeTransparency = 0
 	textlab.TextStrokeColor3 = Color3.new(0.24, 0.24, 0.24)
 	textlab.Font = Enum.Font.SourceSans
-	textlab.TextSize = 30
+	textlab.TextSize = 18
 	textlab.Text = ""
 	textlab.BackgroundColor3 = Color3.new(0, 0, 0)
 	textlab.Position = UDim2.new(0.89, 0, 0.530, 0)
