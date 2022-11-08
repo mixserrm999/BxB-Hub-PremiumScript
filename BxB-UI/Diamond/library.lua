@@ -105,7 +105,7 @@ end
 	local create = {}
 	function create.win()
 	    if logoid == nil or logoid == "" then
-	        logoid = "10145583953"
+	        logoid = ""
 	    end
 		local fs = false
 
@@ -533,7 +533,7 @@ local IMGNAME = Instance.new("ImageLabel")
 		NameReal2.AnchorPoint = Vector2.new(0.5, 0.5)
 		NameReal2.Size = UDim2.new(0, 136, 0, 34)
 		NameReal2.Font = Enum.Font.GothamBold
-		NameReal2.Text = "Diamond"
+		NameReal2.Text = "BxBHub"
 		NameReal2.TextColor3 = _G.ColorMethod
 		NameReal2.TextSize = 25.000
 
@@ -573,7 +573,7 @@ end
 		NameReal2.AnchorPoint = Vector2.new(0.5, 0.5)
 		NameReal2.Size = UDim2.new(0, 136, 0, 34)
 		NameReal2.Font = Enum.Font.GothamBold
-		NameReal2.Text = "       HUB"
+		NameReal2.Text = "     .xyz"
 		NameReal2.TextColor3 = Color3.fromRGB(255,255,255)
 		NameReal2.TextSize = 25.000
 		
@@ -597,7 +597,7 @@ local IMGNAME = Instance.new("ImageLabel")
 		NameReal.AnchorPoint = Vector2.new(0.5, 0.5)
 		NameReal.Size = UDim2.new(0, 136, 0, 34)
 		NameReal.Font = Enum.Font.GothamBold
-		NameReal.Text = "Diamond"
+		NameReal.Text = "BxB.xyz | "
 		NameReal.TextColor3 = _G.ColorMethod
 		NameReal.TextSize = 23.000
 		
@@ -611,7 +611,7 @@ local IMGNAME = Instance.new("ImageLabel")
 		NameReal.AnchorPoint = Vector2.new(0.5, 0.5)
 		NameReal.Size = UDim2.new(0, 136, 0, 34)
 		NameReal.Font = Enum.Font.GothamBold
-		NameReal.Text = "HUB"
+		NameReal.Text = "         Premium"
 		NameReal.TextColor3 = Color3.fromRGB(255,255,255)
 		NameReal.TextSize = 23.000
 		
