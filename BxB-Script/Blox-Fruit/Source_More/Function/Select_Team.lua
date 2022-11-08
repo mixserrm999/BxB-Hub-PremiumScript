@@ -30,3 +30,19 @@ if (_G.Team == "Pirates" or _G.Team == "Marines") and not join then
     until join == true
     game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Visible = false
 end
+
+--[[ OLD ]] --
+
+if _G.Team == "Pirate" then
+	for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
+		v.Function()
+	end
+elseif _G.Team == "Marine" then
+	for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
+		v.Function()
+	end
+else
+	for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.MouseButton1Click)) do
+		v.Function()
+	end
+end
