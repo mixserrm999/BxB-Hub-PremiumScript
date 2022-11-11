@@ -32,3 +32,4 @@ if not game.PlaceId == Supported then
             hint:destroy()
         end
     )
+end
