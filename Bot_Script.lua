@@ -19,17 +19,3 @@ local Supported = Games[game.PlaceId] or false
 if Supported ~= false then
     loadstring(game:HttpGet(OWNER..""..DATA..""..Supported))()
 end
---// Notify
-
-if not game.PlaceId == Supported then
-    local hint = Instance.new("Hint", game.CoreGui)
-    local req = (syn and syn.request) or (http and http.request) or http_request or request
-    warn("Not a supported game")
-    hint.Text = "This game is not supported"
-    delay(
-        5,
-        function()
-            hint:destroy()
-        end
-    )
-end
