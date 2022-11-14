@@ -5,7 +5,7 @@ A Lua Obfuscator made for Roblox, but should work on most Lua applications
 ## Installation
 
 - Install [Lua For Windows](https://github.com/rjpcomputing/luaforwindows/releases/)
-
+- Install .NET Run Time [2.0]
 ## Usage
 
 1. Put your script in **Script.lua**
