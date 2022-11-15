@@ -36,7 +36,10 @@ local function createObject(className, properties)
 	instance.Parent = parent
 	return instance
 end
-
+--// Get game name
+local marketplaceService = game:GetService("MarketplaceService")
+local isSuccessful, info = pcall(marketplaceService.GetProductInfo, marketplaceService, game.PlaceId)
+-- // \\ --
 
 local Core = createObject("ScreenGui", {
 	Name = "Core",
@@ -61,7 +64,7 @@ local Top = createObject("TextLabel", {
 	Position = UDim2.new(0, 30, 0, 8),
 	Size = UDim2.new(0, 301, 0, 50),
 	Font = Enum.Font.Gotham,
-	Text = "Loader",
+	Text = info.Name,
 	TextColor3 = Metadata.LoaderData.Colors.Topic,
 	TextSize = 10,
 	TextXAlignment = Enum.TextXAlignment.Left,
