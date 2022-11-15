@@ -3,9 +3,7 @@ shared.LoaderKeyFrames = {
    [1] = {1, 30}, -- [Time (s), Percentage]
    [2] = {3, 100}
 }
-loadstring(game:HttpGet'https://raw.githubusercontent.com/ao-0/miami-nights/main/Resources/Loady/v1/Portable.lua')()
-
--- xiba#8492 @ 11/12/2022 9:54 PM
+loadstring(game:HttpGet'https://raw.githubusercontent.com/BxB-HUB/BxB-Hub-PremiumScript/main/Loading/ld.library.lua')()
 
 local Metadata = {
 	LoaderData = {
@@ -25,3 +23,5 @@ local Metadata = {
 		[4] = {2, 100}
 	}
 }
+
+print("SCS")
