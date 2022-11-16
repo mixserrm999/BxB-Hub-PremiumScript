@@ -96,7 +96,7 @@ local requestwebhook = syn.request({
 				                
 			{
                 ["name"] = "[ 👨‍🎓 ] INFO PLAYER [ 👨‍🎓 ]",
-                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
+                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```"Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers"```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
                 ["inline"] = CL
             }, 
             {
