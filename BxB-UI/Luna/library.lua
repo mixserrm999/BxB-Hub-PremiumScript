@@ -1391,19 +1391,28 @@ local win = library:Window(HubName,"9133638985",Enum.KeyCode.RightControl)
 
 local Tab1 = win:Tab("Main")
 Tab1:Seperator("Seperator")
-local hours = Tab1:Label("")
+
+Time = Tab1:Label("servertime")
+
 function UpdateTime()
-    hours:Set("Hours : "..os.date("%H")..":"..os.date("%M")..":"..os.date("%S"))
+    local GameTime = math.floor(workspace.DistributedGameTime+0.5)
+    local Hour = math.floor(GameTime/(60^2))%24
+    local Minute = math.floor(GameTime/(60^1))%60
+    local Second = math.floor(GameTime/(60^0))%60
+    Time:Set("[ Servertime ] : Hour : "..Hour.." Minute : "..Minute.." Second : "..Second)
 end
 
 spawn(function()
-    while true do wait(.1)
+    while true do
         UpdateTime()
+        wait()
     end
 end)
+
+
 local Date = Tab1:Label("")
 function UpdateDate()
-    Date:Set("DATE : "..os.date())
+    Date:Set("[ DATE ] : "..os.date().." [ "..os.date("%d").." / "..os.date("%m").." / "..os.date("%y").." ]")
 end
 
 spawn(function()
@@ -1418,7 +1427,7 @@ Client = Tab1:Label("PING Player")
 function UpdateClient()
     local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
     local Fps = workspace:GetRealPhysicsFPS()
-    Client:Set("PING : "..Ping)
+    Client:Set("[ PING ] : "..Ping)
 end
 
 spawn(function()
