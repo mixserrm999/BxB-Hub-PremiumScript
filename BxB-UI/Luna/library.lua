@@ -12,6 +12,11 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local tween = game:GetService("TweenService")
 local Red = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local HubName = "BxB.xyz"
+
+	local HubText = " Premium"
+
+
 
 
 local function MakeDraggable(topbarobject, object)
@@ -306,7 +311,7 @@ function library:Window(text,logo,keybind)
 	Hub.Position = UDim2.new(0, 110, 0, 0)
 	Hub.Size = UDim2.new(0, 81, 0, 27)
 	Hub.Font = Enum.Font.GothamSemibold
-	Hub.Text = "KAITAN"
+	Hub.Text = HubText
 	Hub.TextColor3 = Color3.fromRGB(173, 121, 226)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
@@ -1382,20 +1387,73 @@ function library:Window(text,logo,keybind)
 	return uitab
 end
 
-local win = library:Window("LUNA","9133638985",Enum.KeyCode.RightControl)
+local win = library:Window(HubName,"9133638985",Enum.KeyCode.RightControl)
 
-local AutoFarmTab = win:Tab("Main")
+local Tab1 = win:Tab("Main")
+Tab1:Seperator("Seperator")
+local hours = Tab1:Label("")
+function UpdateTime()
+    hours:Set("Hours : "..os.date("%H")..":"..os.date("%M")..":"..os.date("%S"))
+end
 
-AutoFarmTab:Toggle("Toggle",false,"6022668898",function(a)
-	local Light = game:GetService("Lighting")
- 
-	function dofullbright()
-	Light.Ambient = Color3.new(1, 1, 1)
-	Light.ColorShift_Bottom = Color3.new(1, 1, 1)
-	Light.ColorShift_Top = Color3.new(1, 1, 1)
-	end
-	 
-	dofullbright()
-	 
-	Light.LightingChanged:Connect(dofullbright)
+spawn(function()
+    while true do wait(.1)
+        UpdateTime()
+    end
 end)
+local Date = Tab1:Label("")
+function UpdateDate()
+    Date:Set("DATE : "..os.date())
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateDate()
+    end
+end)
+
+--// FPS/PING \\--
+Client = Tab1:Label("PING Player")
+
+function UpdateClient()
+    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    local Fps = workspace:GetRealPhysicsFPS()
+    Client:Set("PING : "..Ping)
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateClient()
+    end
+end)
+--// END FPS/PING \\--
+Tab1:Label("                                        Label")
+Tab1:Line()
+Tab1:Textbox("Textbox")
+Tab1:Toggle("Toggle",false,"6022668898",function(value)
+print("Toggle")
+_G.Toggle = value
+end)
+Tab1:Button("Toggle",function(value)
+ print("Button")
+ _G.Button = value
+end)
+Tab1:Slider("Slider",0,100,5,function(value)
+_G.Slider = value
+end)
+Tab1:Dropdown("Dropdown",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
+        _G.Dropdown = value
+end)
+WeaponList = {"TEST","TE","ASD"}
+    
+local SelectWeapona = Tab1:Dropdown("Select Weapon",WeaponList,function(value)
+    _G.SelectWeapon = value
+end)
+Tab1:Button("Refresh Dropdown",function()
+    SelectWeapona:Clear()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
+        SelectWeapona:Add(v.Name)
+    end
+end)
+
+
