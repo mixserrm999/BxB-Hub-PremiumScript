@@ -1,8 +1,17 @@
+
 local insertKey = Enum.KeyCode.RightShift
 
 if not game:IsLoaded() then
 game.Loaded:Wait()
 end
+
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "[ System ] </> BxB.xyz | Discord Emoji";
+Color = Color3.new(0,255,255);
+Font = Enum.Font.SourceSans;
+FontSize = Enum.FontSize.Size24;
+})
+
 
 local plrs = game:GetService("Players")
 local PlayerGui = plrs.LocalPlayer:FindFirstChildOfClass("PlayerGui")
@@ -32,8 +41,8 @@ EmojiButton.TextColor3 = Color3.new(1, 1, 1)
 EmojiButton.TextXAlignment = Enum.TextXAlignment.Left
 
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-Text = "Edge's Emoji Chat Loaded. Fetching Emojis...";
-Color = Color3.new(255,255,255);
+Text = "[ System ] > Emoji Chat Loaded. Fetching Emojis...";
+Color = Color3.new(255,0,0);
 Font = Enum.Font.SourceSans;
 FontSize = Enum.FontSize.Size24;
 })
@@ -130,6 +139,13 @@ end
 selected = 0
 end
 
+
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "[ System ] > Load Commands/Prefix...";
+Color = Color3.new(255,255,0);
+Font = Enum.Font.SourceSans;
+FontSize = Enum.FontSize.Size24;
+})
 local chatboxFunc = nil
 if pcall(function() chatbox = PlayerGui:WaitForChild("Chat").Frame.ChatBarParentFrame.Frame.BoxFrame.Frame.ChatBar end) then
 local function Index()
@@ -264,8 +280,15 @@ end
 end)
 
 game.StarterGui:SetCore("ChatMakeSystemMessage", {
-Text = "Emojis Loaded";
-Color = Color3.new(255,255,255);
+Text = "[ System ] > Emojis Loaded";
+Color = Color3.new(0,255,0);
+Font = Enum.Font.SourceSans;
+FontSize = Enum.FontSize.Size24;
+})
+
+game.StarterGui:SetCore("ChatMakeSystemMessage", {
+Text = "[ Prefix ] > [ : ]";
+Color = Color3.new(0,255,0);
 Font = Enum.Font.SourceSans;
 FontSize = Enum.FontSize.Size24;
 })
