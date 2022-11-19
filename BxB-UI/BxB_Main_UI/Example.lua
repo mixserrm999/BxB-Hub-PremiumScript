@@ -1,3 +1,8 @@
+repeat wait() until game:IsLoaded()
+repeat wait() until game:GetService("Players")
+repeat wait() until game:GetService("Players").LocalPlayer
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
+repeat wait() until game:GetService("ReplicatedStorage").Effect.Container
 do
 	local ui = game.CoreGui:FindFirstChild("ABc")
 	if ui then
@@ -570,8 +575,8 @@ function library:Window(text,logo,keybind)
 			end
 		end)
 	end)
-	]]
-
+    
+]]--
 	local uitab = {}
 	
 	function uitab:Tab(text)
@@ -1421,11 +1426,56 @@ spawn(function()
 end)
 
 --// FPS/PING \\--
+CPU = Tab1:Label("CPU")
+
+function UpdateCPU()
+    local cpu = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").CPU:GetValue())
+    cpu = math.floor(cpu)
+    CPU:Set("CPU : "..cpu.." ms")
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateCPU()
+    end
+end)
+GPU = Tab1:Label("GPU")
+
+function UpdateGPU()
+    local gpu = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").GPU:GetValue())
+        gpu = math.floor(gpu)
+    GPU:Set("GPU : "..gpu.." ms")
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateGPU()
+    end
+end)
+Fps = Tab1:Label("FPS")
+		local FPSLabel = script.Parent
+	local RunService = game:GetService("RunService")
+	local RenderStepped = RunService.RenderStepped
+	local sec = nil
+	local FPS = {}
+	
+    local function fre()
+    local fr = tick()
+	for index = #FPS,1,-1 do
+	FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+	end
+	FPS[1] = fr
+	local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+	fps = math.floor(fps)
+    Fps:Set("FPS : "..fps.." ps")
+end
+   sec = tick()
+	RenderStepped:Connect(fre)
+
 Client = Tab1:Label("PING Player")
 
 function UpdateClient()
     local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-    local Fps = workspace:GetRealPhysicsFPS()
     Client:Set("PING : "..Ping)
 end
 
@@ -1438,8 +1488,6 @@ end)
 Plr = Tab1:Label("Players in Server")
 
 function UpdatePlr()
-    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-    local Fps = workspace:GetRealPhysicsFPS()
     Plr:Set("Players :  "..game.Players.NumPlayers .. " / "..game.Players.MaxPlayers)
 end
 
