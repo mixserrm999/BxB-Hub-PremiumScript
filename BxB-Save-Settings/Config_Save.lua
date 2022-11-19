@@ -1,4 +1,4 @@
-
+--// _G.Settings.Configs["Select Team"] \\--
 _G.Settings = {
 
 	Main = {
