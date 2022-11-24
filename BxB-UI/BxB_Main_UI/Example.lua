@@ -17,10 +17,12 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local tween = game:GetService("TweenService")
 local Red = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local GetName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+
 local HubName = "BxB.xyz"
 
 	local HubText = " Premium"
-
+	local CirText = tostring(GetName.Name)
 
 
 
@@ -320,6 +322,21 @@ function library:Window(text,logo,keybind)
 	Hub.TextColor3 = Color3.fromRGB(173, 121, 226)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
+
+	local Cir = Instance.new("TextLabel")
+	Cir.Name = "Cir"
+	Cir.Parent = Top
+	Cir.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Cir.BackgroundTransparency = 1.000
+	Cir.Position = UDim2.new(0, 300, 0, 0)
+	Cir.Size = UDim2.new(0, 81, 0, 27)
+	Cir.Font = Enum.Font.GothamSemibold
+	Cir.Text = "[ "..CirText.." ]"
+	Cir.TextColor3 = Color3.fromRGB(240, 240, 240)
+	Cir.TextSize = 15.000
+	Cir.TextXAlignment = Enum.TextXAlignment.Left
+
+	
 
 	local BindButton = Instance.new("TextButton")
 	BindButton.Name = "BindButton"
@@ -1305,6 +1322,8 @@ function library:Window(text,logo,keybind)
 			UICorner.CornerRadius = UDim.new(0, 5)
 			UICorner.Parent = RealTextbox
 		end
+		
+		
 		function main:Label(text)
 			local Label = Instance.new("TextLabel")
 			local PaddingLabel = Instance.new("UIPadding")
@@ -1331,6 +1350,62 @@ function library:Window(text,logo,keybind)
 
 			return labell
 		end
+		-- // Label Color Custom \\ --
+		function main:LabelG(text)
+			local Label = Instance.new("TextLabel")
+			local PaddingLabel = Instance.new("UIPadding")
+			local labell = {}
+	
+			Label.Name = "Label"
+			Label.Parent = MainFramePage
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Size = UDim2.new(0, 470, 0, 20)
+			Label.Font = Enum.Font.GothamSemibold
+			Label.TextColor3 = Color3.fromRGB(0, 225, 0)
+			Label.TextSize = 16.000
+			Label.Text = text
+			Label.TextXAlignment = Enum.TextXAlignment.Left
+
+			PaddingLabel.PaddingLeft = UDim.new(0,15)
+			PaddingLabel.Parent = Label
+			PaddingLabel.Name = "PaddingLabel"
+	
+			function labell:Set(newtext)
+				Label.Text = newtext
+			end
+
+			return labell
+		end
+		
+		function main:LabelR(text)
+			local Label = Instance.new("TextLabel")
+			local PaddingLabel = Instance.new("UIPadding")
+			local labell = {}
+	
+			Label.Name = "Label"
+			Label.Parent = MainFramePage
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Size = UDim2.new(0, 470, 0, 20)
+			Label.Font = Enum.Font.GothamSemibold
+			Label.TextColor3 = Color3.fromRGB(255, 0, 0)
+			Label.TextSize = 16.000
+			Label.Text = text
+			Label.TextXAlignment = Enum.TextXAlignment.Left
+
+			PaddingLabel.PaddingLeft = UDim.new(0,15)
+			PaddingLabel.Parent = Label
+			PaddingLabel.Name = "PaddingLabel"
+	
+			function labell:Set(newtext)
+				Label.Text = newtext
+			end
+
+			return labell
+		end
+		
+		-- // END Label Color Custom \\ --
 		function main:Seperator(text)
 			local Seperator = Instance.new("Frame")
 			local Sep1 = Instance.new("Frame")
@@ -1393,7 +1468,7 @@ function library:Window(text,logo,keybind)
 end
 --// Config \\--
 _G.Rejoin = true
-
+_G.AFK = true
 --// END Config \\--
 
 local win = library:Window(HubName,"9133638985",Enum.KeyCode.RightControl)
@@ -1404,6 +1479,64 @@ local exc = win:Tab("Example")
 local Tab2 = win:Tab("Player")
 
 --// Tab1 \\--
+local Loop = Tab1:Label("                    ")
+
+function Updateloops()
+    Loop:Set("▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                     ▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                            ▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                   ▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                           ▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                                  ▄▄")
+    wait(.2)
+end
+
+spawn(function()
+    while true do wait(.1)
+        Updateloops()
+    end
+end)
 local hours = Tab1:Label("")
 function UpdateTime()
     hours:Set("Hours : "..os.date("%H")..":"..os.date("%M")..":"..os.date("%S").." | "..os.date("%d").." / "..os.date("%m").." / "..os.date("%y"))
@@ -1496,6 +1629,66 @@ spawn(function()
         UpdatePlr()
     end
 end)
+
+local Loop1 = Tab1:Label("                    ")
+
+function Updateloop()
+    Loop1:Set("▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                     ▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                            ▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                   ▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                           ▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                                  ▄▄")
+    wait(.2)
+end
+
+spawn(function()
+    while true do wait(.1)
+        Updateloop()
+    end
+end)
+
 --// END FPS/PING \\--
 --// End Tab1 \\--
 --// exc \\--
@@ -1567,7 +1760,31 @@ Tab2:Toggle("Teleport",false,"6022668898",function(value)
         end)
 end)
 --// End Tab2 \\--
+--// End Tool \\--
+
+
+
+
+
+
+
+
+
+
+
 --// FUNCTIONS \\--
+-- // Anti AFK \\--
+spawn(function()
+    while true do wait()
+        if _G.AFK then
+            game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    game:GetService("VirtualUser"):CaptureController()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+    end)
+        end
+    end
+end)
+--// END Anti AFK \\--
 -- // Anti Rejoin \\--
 spawn(function()
     while true do wait()
