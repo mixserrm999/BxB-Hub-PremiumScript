@@ -331,7 +331,7 @@ function library:Window(text,logo,keybind)
 	Cir.Position = UDim2.new(0, 300, 0, 0)
 	Cir.Size = UDim2.new(0, 81, 0, 27)
 	Cir.Font = Enum.Font.GothamSemibold
-	Cir.Text = "[ "..CirText.." ]"
+	Cir.Text = CirText
 	Cir.TextColor3 = Color3.fromRGB(240, 240, 240)
 	Cir.TextSize = 15.000
 	Cir.TextXAlignment = Enum.TextXAlignment.Left
