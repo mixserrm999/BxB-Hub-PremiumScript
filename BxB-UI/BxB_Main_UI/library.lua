@@ -1,3 +1,8 @@
+repeat wait() until game:IsLoaded()
+repeat wait() until game:GetService("Players")
+repeat wait() until game:GetService("Players").LocalPlayer
+repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
+repeat wait() until game:GetService("ReplicatedStorage").Effect.Container
 do
 	local ui = game.CoreGui:FindFirstChild("ABc")
 	if ui then
@@ -12,10 +17,12 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local tween = game:GetService("TweenService")
 local Red = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local GetName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+
 local HubName = "BxB.xyz"
 
 	local HubText = " Premium"
-
+	local CirText = tostring(GetName.Name)
 
 
 
@@ -316,6 +323,21 @@ function library:Window(text,logo,keybind)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
 
+	local Cir = Instance.new("TextLabel")
+	Cir.Name = "Cir"
+	Cir.Parent = Top
+	Cir.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Cir.BackgroundTransparency = 1.000
+	Cir.Position = UDim2.new(0, 300, 0, 0)
+	Cir.Size = UDim2.new(0, 81, 0, 27)
+	Cir.Font = Enum.Font.GothamSemibold
+	Cir.Text = CirText
+	Cir.TextColor3 = Color3.fromRGB(240, 240, 240)
+	Cir.TextSize = 15.000
+	Cir.TextXAlignment = Enum.TextXAlignment.Left
+
+	
+
 	local BindButton = Instance.new("TextButton")
 	BindButton.Name = "BindButton"
 	BindButton.Parent = Top
@@ -570,8 +592,8 @@ function library:Window(text,logo,keybind)
 			end
 		end)
 	end)
-	]]
-
+    
+]]--
 	local uitab = {}
 	
 	function uitab:Tab(text)
@@ -1300,6 +1322,8 @@ function library:Window(text,logo,keybind)
 			UICorner.CornerRadius = UDim.new(0, 5)
 			UICorner.Parent = RealTextbox
 		end
+		
+		
 		function main:Label(text)
 			local Label = Instance.new("TextLabel")
 			local PaddingLabel = Instance.new("UIPadding")
@@ -1326,6 +1350,62 @@ function library:Window(text,logo,keybind)
 
 			return labell
 		end
+		-- // Label Color Custom \\ --
+		function main:LabelG(text)
+			local Label = Instance.new("TextLabel")
+			local PaddingLabel = Instance.new("UIPadding")
+			local labell = {}
+	
+			Label.Name = "Label"
+			Label.Parent = MainFramePage
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Size = UDim2.new(0, 470, 0, 20)
+			Label.Font = Enum.Font.GothamSemibold
+			Label.TextColor3 = Color3.fromRGB(0, 225, 0)
+			Label.TextSize = 16.000
+			Label.Text = text
+			Label.TextXAlignment = Enum.TextXAlignment.Left
+
+			PaddingLabel.PaddingLeft = UDim.new(0,15)
+			PaddingLabel.Parent = Label
+			PaddingLabel.Name = "PaddingLabel"
+	
+			function labell:Set(newtext)
+				Label.Text = newtext
+			end
+
+			return labell
+		end
+		
+		function main:LabelR(text)
+			local Label = Instance.new("TextLabel")
+			local PaddingLabel = Instance.new("UIPadding")
+			local labell = {}
+	
+			Label.Name = "Label"
+			Label.Parent = MainFramePage
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Size = UDim2.new(0, 470, 0, 20)
+			Label.Font = Enum.Font.GothamSemibold
+			Label.TextColor3 = Color3.fromRGB(255, 0, 0)
+			Label.TextSize = 16.000
+			Label.Text = text
+			Label.TextXAlignment = Enum.TextXAlignment.Left
+
+			PaddingLabel.PaddingLeft = UDim.new(0,15)
+			PaddingLabel.Parent = Label
+			PaddingLabel.Name = "PaddingLabel"
+	
+			function labell:Set(newtext)
+				Label.Text = newtext
+			end
+
+			return labell
+		end
+		
+		-- // END Label Color Custom \\ --
 		function main:Seperator(text)
 			local Seperator = Instance.new("Frame")
 			local Sep1 = Instance.new("Frame")
@@ -1386,3 +1466,424 @@ function library:Window(text,logo,keybind)
 	end
 	return uitab
 end
+--// Config \\--
+_G.Rejoin = true
+_G.AFK = true
+--// END Config \\--
+
+local win = library:Window(HubName,"9133638985",Enum.KeyCode.RightControl)
+
+
+local Tab1 = win:Tab("Main")
+local exc = win:Tab("Example")
+local Tab2 = win:Tab("Player")
+
+--// Tab1 \\--
+local Loop = Tab1:Label("                    ")
+
+function Updateloops()
+    Loop:Set("▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                     ▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                            ▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                   ▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                           ▄▄▄▄")
+    wait(.2)
+    Loop:Set("                                                                                                  ▄▄")
+    wait(.2)
+end
+
+spawn(function()
+    while true do wait(.1)
+        Updateloops()
+    end
+end)
+local hours = Tab1:Label("")
+function UpdateTime()
+    hours:Set("Hours : "..os.date("%H")..":"..os.date("%M")..":"..os.date("%S").." | "..os.date("%d").." / "..os.date("%m").." / "..os.date("%y"))
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateTime()
+    end
+end)
+local Date = Tab1:Label("")
+function UpdateDate()
+    Date:Set("DATE : "..os.date())
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateDate()
+    end
+end)
+
+--// FPS/PING \\--
+CPU = Tab1:Label("CPU")
+
+function UpdateCPU()
+    local cpu = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").CPU:GetValue())
+    cpu = math.floor(cpu)
+    CPU:Set("CPU : "..cpu.." ms")
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateCPU()
+    end
+end)
+GPU = Tab1:Label("GPU")
+
+function UpdateGPU()
+    local gpu = tonumber(game:GetService("Stats"):FindFirstChild("PerformanceStats").GPU:GetValue())
+        gpu = math.floor(gpu)
+    GPU:Set("GPU : "..gpu.." ms")
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateGPU()
+    end
+end)
+Fps = Tab1:Label("FPS")
+		local FPSLabel = script.Parent
+	local RunService = game:GetService("RunService")
+	local RenderStepped = RunService.RenderStepped
+	local sec = nil
+	local FPS = {}
+	
+    local function fre()
+    local fr = tick()
+	for index = #FPS,1,-1 do
+	FPS[index + 1] = (FPS[index] >= fr - 1) and FPS[index] or nil
+	end
+	FPS[1] = fr
+	local fps = (tick() - sec >= 1 and #FPS) or (#FPS / (tick() - sec))
+	fps = math.floor(fps)
+    Fps:Set("FPS : "..fps.." ps")
+end
+   sec = tick()
+	RenderStepped:Connect(fre)
+
+Client = Tab1:Label("PING Player")
+
+function UpdateClient()
+    local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+    Client:Set("PING : "..Ping)
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdateClient()
+    end
+end)
+
+Plr = Tab1:Label("Players in Server")
+
+function UpdatePlr()
+    Plr:Set("Players :  "..game.Players.NumPlayers .. " / "..game.Players.MaxPlayers)
+end
+
+spawn(function()
+    while true do wait(.1)
+        UpdatePlr()
+    end
+end)
+
+local Loop1 = Tab1:Label("                    ")
+
+function Updateloop()
+    Loop1:Set("▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                     ▄▄▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                            ▄▄▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                   ▄▄▄▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                           ▄▄▄▄")
+    wait(.2)
+    Loop1:Set("                                                                                                  ▄▄")
+    wait(.2)
+end
+
+spawn(function()
+    while true do wait(.1)
+        Updateloop()
+    end
+end)
+
+--// END FPS/PING \\--
+--// End Tab1 \\--
+--// exc \\--
+exc:Seperator("Seperator")
+exc:Label("                                        Label")
+exc:Line()
+exc:Textbox("Textbox",_G.TextBox,function(value)
+_G.TextBox = value
+end)
+exc:Toggle("Toggle",false,"6022668898",function(value)
+print("Toggle")
+_G.Toggle = value
+end)
+exc:Button("Toggle",function(value)
+ print(_G.TextBox)
+ _G.Button = value
+end)
+exc:Slider("Slider",0,100,5,function(value)
+_G.Slider = value
+end)
+exc:Dropdown("Dropdown",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
+        _G.Dropdown = value
+end)
+
+local drop = Tab2:Dropdown("Dropdown",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
+print(bool)
+end)
+
+Tab2:Button("Button", function()
+drop:Clear()
+end)
+
+Tab2:Button("Add Button", function()
+drop:Add("Option")
+end)
+WeaponList = {}
+    
+local SelectWeapona = exc:Dropdown("Select Weapon",WeaponList,function(value)
+    _G.SelectWeapon = value
+end)
+exc:Button("Refresh Dropdown",function()
+    SelectWeapona:Clear()
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
+        SelectWeapona:Add(v.Name)
+    end
+end)
+--// End exc \\--
+--// Tab2 \\--
+Playerslist = {}
+    
+    for i,v in pairs(game:GetService("Players"):GetChildren()) do
+        table.insert(Playerslist,v.Name)
+    end
+    
+    local SelectedPly = Tab2:Dropdown("Select Players",Playerslist,function(value)
+        _G.SelectPly = value
+    end)
+    
+Tab2:Button("Refresh Player",function()
+        Playerslist = {}
+        SelectedPly:Clear()
+        for i,v in pairs(game:GetService("Players"):GetChildren()) do  
+            SelectedPly:Add(v.Name)
+        end
+    end)
+Tab2:Toggle("Spectate Player",false,"6022668898",function(value)
+        SpectatePlys = value
+        local plr1 = game:GetService("Players").LocalPlayer.Character.Humanoid
+        local plr2 = game:GetService("Players"):FindFirstChild(_G.SelectPly)
+        repeat wait(.1)
+            game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players"):FindFirstChild(_G.SelectPly).Character.Humanoid
+        until SpectatePlys == false 
+        game:GetService("Workspace").Camera.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
+
+end)
+Tab2:Toggle("Teleport",false,"6022668898",function(value)
+        _G.TeleportPly = value
+        pcall(function()
+            if _G.TeleportPly then
+                repeat topos(game:GetService("Players")[_G.SelectPly].Character.HumanoidRootPart.CFrame) wait() until _G.TeleportPly == false
+            end
+            StopTween(_G.TeleportPly)
+        end)
+end)
+
+
+
+--// End Tab2 \\--
+--// End Tool \\--
+
+
+
+
+
+
+
+
+
+
+
+--// FUNCTIONS \\--
+-- // Anti AFK \\--
+spawn(function()
+    while true do wait()
+        if _G.AFK then
+            game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    game:GetService("VirtualUser"):CaptureController()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+    end)
+        end
+    end
+end)
+--// END Anti AFK \\--
+-- // Anti Rejoin \\--
+spawn(function()
+    while true do wait()
+        getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Kick)
+            if not _G.TP_Ser and _G.Rejoin then
+                if Kick.Name == 'ErrorPrompt' and Kick:FindFirstChild('MessageArea') and Kick.MessageArea:FindFirstChild("ErrorFrame") then
+                    game:GetService("TeleportService"):Teleport(game.PlaceId)
+                    wait(50)
+                end
+            end
+        end)
+    end
+end)
+--// END Anti Rejoin \\--
+--// TweenService \\--
+
+    function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/350, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 350 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+    
+    function GetDistance(target)
+        return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+    end
+    
+    function TP1(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 500 then
+        Speed = 300
+    elseif Distance < 350 then
+        Speed = 300
+    elseif Distance < 350 then
+        Speed = 300
+    elseif Distance >= 350 then
+        Speed = 300
+    end
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
+end
+    
+    function TP(Pos)
+        Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if Distance < 325 then
+            Speed = 300
+        elseif Distance >= 325 then
+            Speed = 300
+        end
+        game:GetService("TweenService"):Create(
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = Pos}
+        ):Play()
+        _G.Clip = true
+        wait(Distance/Speed)
+        _G.Clip = false
+    end
+
+function StopTween(target)
+        if not target then
+            _G.StopTween = true
+            wait()
+            topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+            wait()
+            if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+            end
+            _G.StopTween = false
+            _G.Clip = false
+        end
+    end
+--// End TweenService \\--
+--// End FUNCTIONS \\--
