@@ -1,22 +1,22 @@
-_G.Key = "BxB-xyz-FGDO-MIZG-Premium"
+_G.Key = "BxB-xyz-DUOV-DKGA-Premium"
 
 local CliendID = game:GetService("RbxAnalyticsService"):GetClientId()
 setclipboard(CliendID)
 local Hwid = {
     [1] = "FF0272E9-3286-4B88-AB02-C722A4B1618E",
     ["FF0272E9-3286-4B88-AB02-C722A4B1618E"] = 1,
-    [2] = "HWID2",
-    ["HWID2"] = 2,
+    [2] = "FF0272E9-3286-4B88-AB02-C722A4B1618E",
+    ["FF0272E9-3286-4B88-AB02-C722A4B1618E"] = 2,
 }
 local Key = {
     [1] = "BxB-xyz-FGDO-MIZG-Premium",
-    [2] = "KEY2",
+    [2] = "BxB-xyz-DUOV-DKGA-Premium",
 }
 local KeyNumber = Hwid[CliendID]
 if Hwid[KeyNumber] == CliendID then
     if Key[KeyNumber] == _G.Key then
         print("Script")
-    else
+    elseif Key ~= _G.Key then
         print("No Key")
 function Randomkey(v)
     local Genkey = ""
@@ -27,7 +27,7 @@ function Randomkey(v)
 end
 setclipboard("BxB-xyz-"..Randomkey(4).."-"..Randomkey(4).."-Premium")
 end
-    else
+    elseif Hwid ~= CliendID then
         print("No Hwid")
     setclipboard(CliendID)
     end
