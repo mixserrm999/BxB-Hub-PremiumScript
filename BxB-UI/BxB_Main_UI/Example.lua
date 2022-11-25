@@ -1695,13 +1695,15 @@ end)
 exc:Seperator("Seperator")
 exc:Label("                                        Label")
 exc:Line()
-exc:Textbox("Textbox")
+exc:Textbox("Key --->",_G.TextBox,function(value)
+_G.TextBox = value
+end)
 exc:Toggle("Toggle",false,"6022668898",function(value)
 print("Toggle")
 _G.Toggle = value
 end)
 exc:Button("Toggle",function(value)
- print("Button")
+ print(_G.TextBox)
  _G.Button = value
 end)
 exc:Slider("Slider",0,100,5,function(value)
