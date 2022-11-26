@@ -1,5 +1,10 @@
+repeat wait() until game:IsLoaded()
+
+
+
 _G.Settings = {
     Auto_Farm_Level = false;
+    Select_Team = nil;
 	Auto_New_World = false;
 	Auto_Third_World = false;
 	Auto_Farm_Chest = false;
@@ -145,6 +150,37 @@ function loadSettings()
 end
  
 loadSettings()
+
+repeat wait()
+	if game.Players.LocalPlayer.Team == nil and game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Visible == true then
+		if _G.Settings.Select_Team == "Pirate" then
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Size = UDim2.new(0, 10000, 0, 10000)
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Position = UDim2.new(-4, 0, -5, 0)
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.BackgroundTransparency = 1
+			wait(.5)
+			game:service'VirtualInputManager':SendMouseButtonEvent(500,500, 0, true, game, 1)
+			game:service'VirtualInputManager':SendMouseButtonEvent(500,500, 0, false, game, 1)
+		elseif _G.Settings.Select_Team == "Marine" then
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Size = UDim2.new(0, 10000, 0, 10000)
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Position = UDim2.new(-4, 0, -5, 0)
+			game:GetService("Players")["LocalPlayer"].PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.BackgroundTransparency = 1
+			wait(.5)
+			game:service'VirtualInputManager':SendMouseButtonEvent(500,500, 0, true, game, 1)
+			game:service'VirtualInputManager':SendMouseButtonEvent(500,500, 0, false, game, 1)
+		else
+			local Notification = require(game:GetService("ReplicatedStorage").Notification)
+
+			Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green> Please select a team before executing the script...! <Color=/>"):Display()
+			wait(3)
+		end
+	end
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+local Notification = require(game:GetService("ReplicatedStorage").Notification)
+
+Notification.new("<Color=Cyan>BxB.xyz | Premium!<Color=/>"):Display()
+Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green>Script Loading...<Color=/>"):Display()
+Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green>Change Logs<Color=/>  (+ Fix Select Team)"):Display()
+
 
 if _G.Settings.Select_Weapon == nil then
     for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
@@ -1718,7 +1754,7 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/BxB-H
 local Wait = library.subs.Wait
 
 local PepsisWorld = library:CreateWindow({
-    Name = "ZEN HUB [PC VERSION]",
+    Name = "BxB.xyz | Premium",
     Themeable = {
     Info = "Discord Server: "
     }
