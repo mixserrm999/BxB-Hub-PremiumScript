@@ -1629,73 +1629,36 @@ spawn(function()
         UpdatePlr()
     end
 end)
-
-local Loop1 = Tab1:Label("                    ")
-
-function Updateloop()
-    Loop1:Set("▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("     ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("          ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("               ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                         ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                   ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                        ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                             ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                       ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                              ▄▄▄▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                                     ▄▄▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                                            ▄▄▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                                                   ▄▄▄▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                                                           ▄▄▄▄")
-    wait(.2)
-    Loop1:Set("                                                                                                  ▄▄")
-    wait(.2)
-end
-
-spawn(function()
-    while true do wait(.1)
-        Updateloop()
-    end
+--// END FPS/PING \\--
+Tab1:Toggle("White Screen",_G.White_Screen,"6022668898",function(value)
+_G.White_Screen = value
+		if _G.White_Screen then
+			game:GetService("RunService"):Set3dRenderingEnabled(false)
+		else
+			game:GetService("RunService"):Set3dRenderingEnabled(true)
+		end
 end)
 
---// END FPS/PING \\--
+Tab1:Toggle("White Screen",_G.White_Screen,"6022668898",function(value)
+_G.Black_Screen = value
+local BlackScreen = game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen
+getgenv().DefaultSize = BlackScreen.Size
+getgenv().NewSize = UDim2.new(500, 0, 500, 500)
+getgenv().StartBlackScreen = false
+if _G.Black_Screen then
+    BlackScreen.Size = NewSize
+else
+    BlackScreen.Size = UDim2.new(DefaultSize)
+end
+end)
+
+
 --// End Tab1 \\--
 --// exc \\--
 exc:Seperator("Seperator")
 exc:Label("                                        Label")
 exc:Line()
-exc:Textbox("Key --->",_G.TextBox,function(value)
+exc:Textbox("Textbox",_G.TextBox,function(value)
 _G.TextBox = value
 end)
 exc:Toggle("Toggle",false,"6022668898",function(value)
@@ -1712,7 +1675,19 @@ end)
 exc:Dropdown("Dropdown",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
         _G.Dropdown = value
 end)
-WeaponList = {"TEST","TE","ASD"}
+
+local drop = Tab2:Dropdown("Dropdown",{"State 0","State 1","State 2","State 3","State 4","State 5"},function(value)
+print(bool)
+end)
+
+Tab2:Button("Button", function()
+drop:Clear()
+end)
+
+Tab2:Button("Add Button", function()
+drop:Add("Option")
+end)
+WeaponList = {}
     
 local SelectWeapona = exc:Dropdown("Select Weapon",WeaponList,function(value)
     _G.SelectWeapon = value
@@ -1761,6 +1736,9 @@ Tab2:Toggle("Teleport",false,"6022668898",function(value)
             StopTween(_G.TeleportPly)
         end)
 end)
+
+
+
 --// End Tab2 \\--
 --// End Tool \\--
 
