@@ -8771,7 +8771,10 @@ Code = {
 	"JCWK",
 	"Bluxxy",
 	"Sub2Fer999",
-	"Enyu_is_Pro"
+	"Enyu_is_Pro",
+	"ADMINGIVEAWAY",
+	"GAMERROBOT_YT",
+	"kittgaming"
 }
 
 codesi:AddSlider({
@@ -9023,4 +9026,4 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 if Supported ~= false then
 _G.BxB_xyz_Load = true
 end
-print(string.format("[ Check Point : 4 ] Check Games ["..game.PlaceId.. "]... %s", tostring(tick() - ACL_LoadTime):sub(1, 6)))
+print(string.format("Load ["..game.PlaceId.. "] in... %s", tostring(tick() - ACL_LoadTime):sub(1, 6)))
