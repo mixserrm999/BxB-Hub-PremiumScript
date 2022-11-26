@@ -1,3 +1,4 @@
+repeat until game:IsLoaded()
 local ACL_LoadTime = tick()
 
 if _G.BxB_xyz_Load ~= nil then
@@ -8653,6 +8654,26 @@ MainMiscSection:AddToggle({
 		else
 			game:GetService("RunService"):Set3dRenderingEnabled(true)
 		end
+    end
+})
+
+MainMiscSection:AddToggle({
+    Name = "Black Screen",
+    Flag = "Black_Screen",
+    Value = _G.Settings.Black_Screen,
+    Callback = function(value)
+        _G.Black_Screen = value
+		_G.Settings.Black_Screen = value
+		saveSettings()
+		local BlackScreen = game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen
+getgenv().DefaultSize = BlackScreen.Size
+getgenv().NewSize = UDim2.new(500, 0, 500, 500)
+getgenv().StartBlackScreen = false
+if _G.Black_Screen then
+    BlackScreen.Size = NewSize
+else
+    BlackScreen.Size = UDim2.new(DefaultSize)
+end
     end
 })
 
