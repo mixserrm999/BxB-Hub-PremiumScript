@@ -1,3 +1,24 @@
+local ACL_LoadTime = tick()
+
+if _G.BxB_xyz_Load ~= nil then
+    local Notification = require(game:GetService("ReplicatedStorage").Notification)
+Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Yellow> A safe function script can be execute only once.<Color=/>"):Display()
+Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green> Wait 3 Sec (Auto rejoin)<Color=/>"):Display()
+
+wait(3)
+    function BxB_Rejoin()
+    local TPSRVC = game:GetService("TeleportService")
+local JobID = game.JobId
+local B_B = game:GetService("Players").LocalPlayer
+local PlaceID = game.PlaceId
+TPSRVC:TeleportToPlaceInstance(PlaceID, JobID, B_B)
+end
+
+BxB_Rejoin()
+return
+end
+_G.BxB_xyz_Load = false
+
 
 _G.Settings = {
     Auto_Farm_Level = false;
@@ -8975,3 +8996,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
   end))
  end
 })
+
+if Supported ~= false then
+_G.BxB_xyz_Load = true
+end
+print(string.format("[ Check Point : 4 ] Check Games ["..game.PlaceId.. "]... %s", tostring(tick() - ACL_LoadTime):sub(1, 6)))
