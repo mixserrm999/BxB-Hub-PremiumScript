@@ -17,12 +17,12 @@ end
 BxB_Rejoin()
 return
 end
-_G.BxB_xyz_Load = false
+
 
 
 _G.Settings = {
     Auto_Farm_Level = false;
-    Select_Team = "Marine"; --// "Pirate" or "Marine" or "nil"
+    Select_Team = "Pirate"; --// "Pirate" or "Marine" or "nil"
 	Auto_New_World = false;
 	Auto_Third_World = false;
 	Auto_Farm_Chest = false;
@@ -165,6 +165,8 @@ repeat wait()
 		end
 	end
 until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+_G.BxB_xyz_Load = false
+
 
 local foldername = "Feet Hub"
 local filename = "BloxFruit "..game.Players.LocalPlayer.Name.." Config.json"
