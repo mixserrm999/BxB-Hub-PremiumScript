@@ -1,4 +1,3 @@
-repeat until game:IsLoaded()
 local ACL_LoadTime = tick()
 
 if _G.BxB_xyz_Load ~= nil then
@@ -8640,7 +8639,10 @@ local race = MiscTab:CreateSection({
 	Name = "Codes",
 	Side = "Left"
    })
-
+   local config = MiscTab:CreateSection({
+	Name = "Configs",
+	Side = "Right"
+   })
 MainMiscSection:AddToggle({
     Name = "White Screen",
     Flag = "White_Screen",
@@ -8650,6 +8652,10 @@ MainMiscSection:AddToggle({
 		_G.Settings.White_Screen = value
 		saveSettings()
 		if _G.White_Screen then
+			if BlackScreen then
+				warn("Please select only one function!")
+					error("Please select only one function!")
+			end
 			game:GetService("RunService"):Set3dRenderingEnabled(false)
 		else
 			game:GetService("RunService"):Set3dRenderingEnabled(true)
@@ -8669,7 +8675,12 @@ MainMiscSection:AddToggle({
 getgenv().DefaultSize = BlackScreen.Size
 getgenv().NewSize = UDim2.new(500, 0, 500, 500)
 getgenv().StartBlackScreen = false
+
 if _G.Black_Screen then
+	if game:GetService("RunService"):Set3dRenderingEnabled(false) then
+		warn("Please select only one function!")
+			error("Please select only one function!")
+	end
     BlackScreen.Size = NewSize
 else
     BlackScreen.Size = UDim2.new(DefaultSize)
@@ -8774,9 +8785,9 @@ Code = {
 	"Enyu_is_Pro",
 	"ADMINGIVEAWAY",
 	"GAMERROBOT_YT",
-	"kittgaming"
-}
+	"kittgaming",
 
+}
 codesi:AddSlider({
     Name = "Select Level to Redeem All Code",
     Flag = "Select_Level_to_Redeem_All_Code",
@@ -8830,7 +8841,131 @@ codesi:AddButton({
 		end
 	end
 })
-
+config:AddButton({
+    Name = "Reset All Setting",
+    Callback = function()
+		_G.Settings = {
+			Auto_Farm_Level = false;
+			Select_Team = ""; --// "Pirate" or "Marine" or "nil"
+			Auto_New_World = false;
+			Auto_Third_World = false;
+			Auto_Farm_Chest = false;
+			Auto_Farm_Chest_Hop = false;
+			Auto_Elite_Hunter = false;
+			Auto_Elite_Hunter_Hop = false;
+			Auto_Spawn_Cake_Prince = true;
+			Auto_Cake_Prince = false;
+			Select_Boss = nil;
+			Auto_Farm_Boss = false;
+			Auto_Quest_Boss = true;
+			Auto_Farm_All_Boss = false;
+			Select_Distance = 30;
+			Select_Health = 20;
+			Select_Mode_Farm = "Normal Mode";
+			Select_Bring_Mob_Mode = "Bring Mob [Normal]";
+			Normal_Fast_Attack = true;
+			Extra_Fast_Attack = true;
+			Auto_Set_Spawn = true;
+			Select_Level_to_Redeem_All_Code = 1;
+			Auto_Redeem_All_Code = false;
+			Select_Weapon = nil;
+			Skill_Z = true;
+			Skill_X = true;
+			Skill_C = true;
+			Skill_V = true;
+			Auto_Saber = false;
+			Auto_Saber_Hop = false;
+			Auto_Pole = false;
+			Auto_Pole_Hop = false;
+			Auto_Farm_Scrap_and_Leather = false;
+			Auto_Farm_Angel_Wing = false;
+			Auto_Factory_Farm = false;
+			Auto_Farm_Ectoplasm = false;
+			Auto_Bartilo_Quest = false;
+			Auto_Rengoku = false;
+			Auto_Farm_Radioactive = false;
+			Auto_Farm_Vampire_Fang = false;
+			Auto_Farm_Mystic_Droplet = false;
+			Auto_Evo_Race_V2 = false;
+			Auto_Swan_Glasses = false;
+			Auto_Swan_Glasses_Hop = false;
+			Auto_Dragon_Trident = false;
+			Auto_Dragon_Trident_Hop = false;
+			Auto_Buy_Legendary_Sword = false;
+			Auto_Buy_Enchancement = false;
+			Auto_Soul_Reaper = false;
+			Auto_Farm_GunPowder = false;
+			Auto_Farm_Dragon_Scales = false;
+			Auto_Soul_Reaper_Hop = false;
+			Auto_Farm_Fish_Tail = false;
+			Auto_Farm_Mini_Tusk = false;
+			Auto_Farm_Magma_Ore = false;
+			Auto_Farm_Bone = false;
+			Auto_Farm_Conjured_Cocoa = false;
+			Auto_Open_Dough_Dungeon = false;
+			Auto_Yama = false;
+			Auto_Trade_Bone = false;
+			Auto_Rainbow_Haki = false;
+			Auto_Rainbow_Haki_Hop = false;
+			Auto_Musketeer_Hat = false;
+			Auto_Holy_Torch = false;
+			Auto_Canvander = false;
+			Auto_Canvander_Hop = false;
+			Auto_Twin_Hook = false;
+			Auto_Twin_Hook_Hop = false;
+			Auto_Serpent_Bow = false;
+			Auto_Serpent_Bow_Hop = false;
+			Auto_Superhuman = false;
+			Auto_Fully_Superhuman = false;
+			Auto_Death_Step = false;
+			Auto_Fully_Death_Step = false;
+			Auto_SharkMan_Karate = false;
+			Auto_Fully_SharkMan_Karate = false;
+			Auto_Electric_Claw = false;
+			Auto_Dragon_Talon = false;
+			Auto_God_Human = false;
+			Auto_Stats_Kaitun = false;
+			Auto_Stats_Melee = false;
+			Auto_Stats_Defense = false;
+			Auto_Stats_Sword = false;
+			Auto_Stats_Gun = false;
+			Auto_Stats_Devil_Fruit = false;
+			Point = 1;
+			No_clip = false;
+			Infinit_Energy = false;
+			Dodge_No_CoolDown = false;
+			Infinit_Ability = false;
+			Infinit_SkyJump = false;
+			Infinit_Soru = false;
+			Infinit_Range_Observation_Haki = false;
+			Select_Size_Fov = 200;
+			Show_Fov = false;
+			Select_Player = nil;
+			Spectate_Player = false;
+			Teleport_to_Player = false;
+			Auto_Kill_Player_Melee = false;
+			Auto_Kill_Player_Gun = false;
+			Select_Island = nil;
+			Start_Tween_Island = false;
+			Select_Dungeon = nil;
+			Auto_Buy_Chips_Dungeon = false;
+			Auto_Start_Dungeon = false;
+			Auto_Next_Island = false;
+			Kill_Aura = false;
+			Auto_Awake = false;
+			Auto_Buy_Law_Chip = false;
+			Auto_Start_Law_Dungeon = false;
+			Auto_Kill_Law = false;
+			Select_Weapon_Law_Raid = nil;
+			Select_Devil_Fruit = nil;
+			Auto_Buy_Devil_Fruit = false;
+			Auto_Random_Fruit = false;
+			Auto_Bring_Fruit = false;
+			Auto_Store_Fruit = false;
+		}
+		saveSettings()
+    end
+})
 race:AddButton({
  Name = "Mink Fake Transform",
  Callback = function()
@@ -9026,4 +9161,4 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 if Supported ~= false then
 _G.BxB_xyz_Load = true
 end
-print(string.format("Load ["..game.PlaceId.. "] in... %s", tostring(tick() - ACL_LoadTime):sub(1, 6)))
+print(string.format("Load in... %s", tostring(tick() - ACL_LoadTime):sub(1, 6)))
