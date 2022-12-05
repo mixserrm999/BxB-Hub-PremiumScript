@@ -2852,19 +2852,23 @@ function EquipWeapon(ToolSe)
 end
 
 function topos(Pos)
-	Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-		if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-		pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/210, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-		tween:Play()
-		if Distance <= 110 then
-			tween:Cancel()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-		end
-		if _G.StopTween == true then
-			tween:Cancel()
-			_G.Clip = false
-		end
-	 end
+         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+         pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/210, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+         tween:Play()
+         if Distance <= 110 then
+             tween:Cancel()
+             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+         end
+         if _G.StopTween == true then
+             tween:Cancel()
+             _G.Clip = false
+         end
+     end
+     
+     function GetDistance(target)
+         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
+     end
 
 function StopTween(target)
 	if not target then
@@ -3076,7 +3080,7 @@ end)
 spawn(function()
 	pcall(function()
 		game:GetService("RunService").Stepped:Connect(function()
-		  	if _G.Auto_Farm_Level or _G.Auto_New_World or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.Auto_Third_World or _G.Auto_Farm_Chest or _G.Auto_Farm_Boss or _G.Auto_Elite_Hunter or _G.Auto_Cake_Prince or _G.Auto_Farm_All_Boss or _G.Auto_Saber or _G.Auto_Pole or _G.Auto_Farm_Scrap_and_Leather or _G.Auto_Farm_Angel_Wing or _G.Auto_Factory_Farm or _G.Auto_Farm_Ectoplasm or _G.Auto_Bartilo_Quest or _G.Auto_Rengoku or _G.Auto_Farm_Radioactive or _G.Auto_Farm_Vampire_Fang or _G.Auto_Farm_Mystic_Droplet or _G.Auto_Farm_GunPowder or _G.Auto_Farm_Dragon_Scales or _G.Auto_Evo_Race_V2 or _G.Auto_Swan_Glasses or _G.Auto_Dragon_Trident or _G.Auto_Soul_Reaper or _G.Auto_Farm_Fish_Tail or _G.Auto_Farm_Mini_Tusk or _G.Auto_Farm_Magma_Ore or _G.Auto_Farm_Bone or _G.Auto_Farm_Conjured_Cocoa or _G.Auto_Open_Dough_Dungeon or _G.Auto_Rainbow_Haki or _G.Auto_Musketeer_Hat or _G.Auto_Holy_Torch or _G.Auto_Canvander or _G.Auto_Twin_Hook or _G.Auto_Serpent_Bow or _G.Auto_Fully_Death_Step or _G.Auto_Fully_SharkMan_Karate or _G.Teleport_to_Player or _G.Auto_Kill_Player_Melee or _G.Auto_Kill_Player_Gun or _G.Start_Tween_Island or _G.Auto_Next_Island or _G.Auto_Kill_Law then
+		  	if _G.Auto_Farm_Level or _G.Auto_New_World or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.Auto_Third_World or _G.Auto_Farm_Chest or _G.TeleportIsland or _G.Auto_Farm_Boss or _G.Auto_Elite_Hunter or _G.Auto_Cake_Prince or _G.Auto_Farm_All_Boss or _G.Auto_Saber or _G.Auto_Pole or _G.Auto_Farm_Scrap_and_Leather or _G.Auto_Farm_Angel_Wing or _G.Auto_Factory_Farm or _G.Auto_Farm_Ectoplasm or _G.Auto_Bartilo_Quest or _G.Auto_Rengoku or _G.Auto_Farm_Radioactive or _G.Auto_Farm_Vampire_Fang or _G.Auto_Farm_Mystic_Droplet or _G.Auto_Farm_GunPowder or _G.Auto_Farm_Dragon_Scales or _G.Auto_Evo_Race_V2 or _G.Auto_Swan_Glasses or _G.Auto_Dragon_Trident or _G.Auto_Soul_Reaper or _G.Auto_Farm_Fish_Tail or _G.Auto_Farm_Mini_Tusk or _G.Auto_Farm_Magma_Ore or _G.Auto_Farm_Bone or _G.Auto_Farm_Conjured_Cocoa or _G.Auto_Open_Dough_Dungeon or _G.Auto_Rainbow_Haki or _G.Auto_Musketeer_Hat or _G.Auto_Holy_Torch or _G.Auto_Canvander or _G.d or _G.Auto_Twin_Hook or _G.Auto_Serpent_Bow or _G.Auto_Fully_Death_Step or _G.Auto_Fully_SharkMan_Karate or _G.Teleport_to_Player or _G.Auto_Kill_Player_Melee or _G.Auto_Kill_Player_Gun or _G.Start_Tween_Island or _G.Auto_Next_Island or _G.Auto_Kill_Law then
 			 	if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
 					local Noclip = Instance.new("BodyVelocity")
 					Noclip.Name = "BodyClip"
@@ -3096,7 +3100,7 @@ end)
 spawn(function()
 	pcall(function()
 		game:GetService("RunService").Stepped:Connect(function()
-			if _G.Auto_Farm_Level or _G.Auto_New_World or _G.Auto_Third_World or _G.Auto_Farm_Chest or _G.Auto_Farm_Boss or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.Auto_Elite_Hunter or _G.Auto_Cake_Prince or _G.Auto_Farm_All_Boss or _G.Auto_Saber or _G.Auto_Pole or _G.Auto_Farm_Scrap_and_Leather or _G.Auto_Farm_Angel_Wing or _G.Auto_Factory_Farm or _G.Auto_Farm_Ectoplasm or _G.Auto_Bartilo_Quest or _G.Auto_Rengoku or _G.Auto_Farm_Radioactive or _G.Auto_Farm_Vampire_Fang or _G.Auto_Farm_Mystic_Droplet or _G.Auto_Farm_GunPowder or _G.Auto_Farm_Dragon_Scales or _G.Auto_Evo_Race_V2 or _G.Auto_Swan_Glasses or _G.Auto_Dragon_Trident or _G.Auto_Soul_Reaper or _G.Auto_Farm_Fish_Tail or _G.Auto_Farm_Mini_Tusk or _G.Auto_Farm_Magma_Ore or _G.Auto_Farm_Bone or _G.Auto_Farm_Conjured_Cocoa or _G.Auto_Open_Dough_Dungeon or _G.Auto_Rainbow_Haki or _G.Auto_Musketeer_Hat or _G.Auto_Holy_Torch or _G.Auto_Canvander or _G.Auto_Twin_Hook or _G.Auto_Serpent_Bow or _G.Auto_Fully_Death_Step or _G.Auto_Fully_SharkMan_Karate or _G.Teleport_to_Player or _G.Auto_Kill_Player_Melee or _G.Auto_Kill_Player_Gun or _G.Start_Tween_Island or _G.d or _G.Auto_Next_Island or _G.Auto_Kill_Law then
+			if _G.Auto_Farm_Level or _G.Auto_New_World or _G.TeleportIsland or _G.Auto_Third_World or _G.Auto_Farm_Chest or _G.Auto_Farm_Boss or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.Auto_Elite_Hunter or _G.Auto_Cake_Prince or _G.Auto_Farm_All_Boss or _G.Auto_Saber or _G.Auto_Pole or _G.Auto_Farm_Scrap_and_Leather or _G.Auto_Farm_Angel_Wing or _G.Auto_Factory_Farm or _G.Auto_Farm_Ectoplasm or _G.Auto_Bartilo_Quest or _G.d or _G.Auto_Rengoku or _G.Auto_Farm_Radioactive or _G.Auto_Farm_Vampire_Fang or _G.Auto_Farm_Mystic_Droplet or _G.Auto_Farm_GunPowder or _G.Auto_Farm_Dragon_Scales or _G.Auto_Evo_Race_V2 or _G.Auto_Swan_Glasses or _G.Auto_Dragon_Trident or _G.Auto_Soul_Reaper or _G.Auto_Farm_Fish_Tail or _G.Auto_Farm_Mini_Tusk or _G.Auto_Farm_Magma_Ore or _G.Auto_Farm_Bone or _G.Auto_Farm_Conjured_Cocoa or _G.Auto_Open_Dough_Dungeon or _G.Auto_Rainbow_Haki or _G.Auto_Musketeer_Hat or _G.Auto_Holy_Torch or _G.Auto_Canvander or _G.Auto_Twin_Hook or _G.Auto_Serpent_Bow or _G.Auto_Fully_Death_Step or _G.Auto_Fully_SharkMan_Karate or _G.Teleport_to_Player or _G.Auto_Kill_Player_Melee or _G.Auto_Kill_Player_Gun or _G.Start_Tween_Island or _G.d or _G.Auto_Next_Island or _G.Auto_Kill_Law then
 				for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 					if v:IsA("BasePart") then
 						v.CanCollide = false    
@@ -3652,7 +3656,11 @@ spawn(function()
   end)
  end
  end
- end)
+end)
+
+function bypass(Point)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Point
+end
 
 --------------------------
 local Main = Library:Tab("Main","rbxassetid://11446825283")
@@ -3743,8 +3751,84 @@ Setting:Slider1("Farm Distance",1,100,20,function(value)
  end)
 end
 
+Setting:Toggle("Bring Mob [Normal]",true,function(value)
+ _G.BringNormal = value
+end)
 
-Setting:Toggle("Bring Mob [Normal]",false,function(value)
+spawn(function()
+    game:GetService("RunService").Heartbeat:Connect(function() CheckQuest()
+		pcall(function()
+			if _G.BringNormal then
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if _G.Auto_Farm_Level and StartMagnet and v.Name == Ms and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 350 then
+						v.HumanoidRootPart.CFrame = PosMon
+						v.HumanoidRootPart.CanCollide = false
+						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+						if v.Humanoid:FindFirstChild("Animator") then
+							v.Humanoid.Animator:Destroy()
+						end
+						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
+					end
+				end
+			end
+		end)
+    end)
+	end)
+	
+	-- [Bring Mob]
+
+task.spawn(function()
+	while true do wait()
+		if setscriptable then
+			setscriptable(game.Players.LocalPlayer, "SimulationRadius", true)
+		end
+		if sethiddenproperty then
+			sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+		end
+	end
+end)
+
+
+
+-- [Deleted Effect Auto]
+
+task.spawn(function()
+	while wait() do
+		for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"]:GetChildren()) do
+			pcall(function()
+				if v.Name == ("CurvedRing") or v.Name == ("SlashHit") or v.Name == ("SwordSlash") or v.Name == ("SlashTail") or v.Name == ("Sounds") then
+					v:Destroy()
+				end
+			end)
+		end
+	end
+end)
+
+if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Death") then
+	game:GetService("ReplicatedStorage").Effect.Container.Death:Destroy()
+end
+if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn") then
+	game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
+end
+
+
+-- [Disabled Damage Interface]
+function DisabledDamage()
+	task.spawn(function()
+		while wait() do
+			pcall(function()
+				if _G.Disabled then
+					game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+				else
+					game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = true
+				end
+			end)
+		end
+	end)
+end
+
+
+Setting:Toggle("Bring Mob [Extra+Lag]",false,function(value)
  _G.BringExtra = value
 end)
 
@@ -3753,7 +3837,7 @@ spawn(function()
   pcall(function()
    if _G.BringExtra then
    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-   if _G.Auto_Farm_Level or _G.AutoFarmBone or Auto_Cake_Prince and StartMagnet and v.Name ~= "Ice Admiral [Lv. 700] [Boss]" and v.Name ~= "Don Swan [Lv. 3000] [Boss]" and v.Name ~= "Saber Expert [Lv. 200] [Boss]" and v.Name ~= "Longma [Lv. 2000] [Boss]" and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 350 then
+   if _G.Auto_Farm_Level and StartMagnet and v.Name ~= "Ice Admiral [Lv. 700] [Boss]" and v.Name ~= "Don Swan [Lv. 3000] [Boss]" and v.Name ~= "Saber Expert [Lv. 200] [Boss]" and v.Name ~= "Longma [Lv. 2000] [Boss]" and (v.HumanoidRootPart.Position - PosMon.Position).magnitude <= 350 then
    v.HumanoidRootPart.CFrame = PosMon
    v.HumanoidRootPart.CanCollide = false
    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
@@ -3768,14 +3852,15 @@ spawn(function()
    end)
 end)
 
+Setting:Toggle("Fast Attack [Normal]",true,function(Fast)
+    _G.FastAttack = Fast
+end)
 
 Setting:Toggle("Auto Click",false,function(value)
  _G.click = value
 end)
 
-Setting:Toggle("Fast Attack [Normal]",false,function(Fast)
-    _G.FastAttack = Fast
-end)
+
 
 local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 local CombatFramework = debug.getupvalues(Module)[2]
@@ -3810,17 +3895,44 @@ spawn(function()
     end)
 end)
 
+Setting:Toggle("Disabled Damage Text",_G.Disabled,function(value)
+ _G.Disabled= value
+ DisabledDamage()
+end)
 
-Setting:Toggle("White Screen",_G.White_Screen,function(value)
- _G.White_Screen = value
-		_G.White_Screen = value
-		saveSettings()
-		if _G.White_Screen then
-			game:GetService("RunService"):Set3dRenderingEnabled(false)
-		else
-			game:GetService("RunService"):Set3dRenderingEnabled(true)
+spawn(function()
+ while wait() do
+ if _G.WhiteScreen then
+ for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+ if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
+ v:Destroy()
+ end
+ end
+ end
+ end
+ end)
+
+Setting:Toggle("White Screen [ Booster FPS ]",_G.WhiteScreen,function(value)
+ _G.WhiteScreen = value
+
+ if _G.WhiteScreen == true then
+ game:GetService("RunService"):Set3dRenderingEnabled(false)
+ elseif _G.WhiteScreen == false then
+ game:GetService("RunService"):Set3dRenderingEnabled(true)
+ end
+end)
+
+Setting:Toggle("Remove Fog",false,function(value)
+         _G.Remove_Fog = value
+		if not _G.Remove_Fog then return end
+		while _G.Remove_Fog do wait()
+			game.Lighting.FogEnd = 9e9
+			if not _G.Remove_Fog then
+				game.Lighting.FogEnd = 2500
+			end
 		end
 end)
+
 
 Setting:Button("Click TP Tool",function()
         local plr = game:GetService("Players").LocalPlayer
@@ -3836,17 +3948,6 @@ Setting:Button("Click TP Tool",function()
         end)
         tool.Parent = plr.Backpack
     end)
-
-Setting:Toggle("Remove Fog",false,function(value)
-         _G.Remove_Fog = value
-		if not _G.Remove_Fog then return end
-		while _G.Remove_Fog do wait()
-			game.Lighting.FogEnd = 9e9
-			if not _G.Remove_Fog then
-				game.Lighting.FogEnd = 2500
-			end
-		end
-end)
 
 
 Setting:Button("FPS Boost",function()
@@ -4041,7 +4142,7 @@ Main:Dropdown("Select Mode Farm", {
 Main:Toggle("Farm Selected Mode",_G.Auto_Farm_Level,function(value)
  _G.Auto_Farm_Level = value
  StopTween(_G.Auto_Farm_Level)
- end)
+end)
 
 if World2 then
 Main:Toggle("Auto Farm Ectoplasm",_G.Auto_Farm_Ectoplasm,function(value)
@@ -4092,6 +4193,126 @@ Main:Toggle("Auto Third World",_G.Auto_Third_World,function(value)
  StopTween(_G.Auto_Third_World)
  end)
 end
+
+Main:Seperator("Auto Cofetti")
+
+
+Main:Toggle("Auto Cofetti",false,function(value)
+ _G.AutoConfetti = value
+end)
+
+function TP(Point)
+	local Ply = game.Players.LocalPlayer
+	local Char = Ply.Character
+	repeat
+		Char.Humanoid:ChangeState(15)
+		Char.HumanoidRootPart.CFrame = Point
+		wait()
+		Char.HumanoidRootPart.CFrame = Point
+	until (Char.HumanoidRootPart.Position - Point.Position).Magnitude <= 20
+end
+
+spawn(function()
+while task.wait() do
+pcall(function()
+if _G.AutoConfetti then
+for i,v in pairs(game.Workspace.NPCs:GetChildren()) do
+	game:GetService("ReplicatedStorage").Remotes.Celebration:InvokeServer('TalkNpc',workspace.NPCs[v.Name])
+end
+end
+end)
+end
+end)
+
+spawn(function()
+while task.wait() do
+pcall(function()
+if _G.AutoConfetti then
+        if game.PlaceId == 4442272183 then
+            TP(CFrame.new(-11.848626136779785, 19.311767578125, 2828.531005859375))
+            TP(CFrame.new(-375.93408203125, 73.11296844482422, 1180.5146484375))
+            TP(CFrame.new(-378.0177001953125, 73.05511474609375, 287.2165222167969))
+            TP(CFrame.new(-2070.090576171875, 72.37596893310547, -2689.849853515625))
+            TP(CFrame.new(-5365.74462890625, 9.003767013549805, -705.3399658203125))
+            TP(CFrame.new(880.24462890625, 125.09214782714844, 32865.26171875))
+            TP(CFrame.new(-5610.93798828125, 18.35700798034668, -5015.65869140625))
+            TP(CFrame.new(-3014.4755859375, 29.575407028198242, -9777.16015625))
+            TP(CFrame.new(113.77246856689453, 401.45697021484375, -5192.54248046875))
+            TP(CFrame.new(5585.3740234375, 12.449106216430664, -5954.33349609375))
+        elseif game.PlaceId == 7449423635 then
+            TP(CFrame.new(-259.380126953125, 6.764979839324951, 5254.09912109375))
+            TP(CFrame.new(-1932.3507080078125, 13.824933052062988, -11636.8515625))
+            TP(CFrame.new(-929.170166015625, 7.802646160125732, -10826.3876953125))
+            TP(CFrame.new(497.3184509277344, 24.76936149597168, -12418.55859375))
+            TP(CFrame.new(-47.42597961425781, 16.97955322265625, -11992.779296875))
+            TP(CFrame.new(2245.78271484375, 12.776296615600586, -6353.974609375))
+            TP(CFrame.new(-9515.0009765625, 142.1398468017578, 5534.05029296875))
+            TP(CFrame.new(-9512.8896484375, 21.139892578125, 4641.02978515625))
+            TP(CFrame.new(4732.6533203125, 51.589698791503906, -1414.252197265625))
+            TP(CFrame.new(5277.3388671875, 602.0785522460938, 363.35223388671875))
+            TP(CFrame.new(3371.987060546875, 38.98302459716797, 1593.1405029296875))
+            TP(CFrame.new(-2045.0103759765625, 38.138248443603516, -10041.935546875))
+            TP(CFrame.new(-5116.79931640625, 314.550537109375, -2964.70068359375))
+            TP(CFrame.new(-4598.1025390625, 16.455780029296875, -2705.09619140625))
+            TP(CFrame.new(-6069.4306640625, 16.455780029296875, -2160.60205078125))
+            TP(CFrame.new(-11385.6767578125, 331.75823974609375, -10405.916015625))
+            TP(CFrame.new(-9603.1591796875, 46.55657196044922, -8365.3828125))
+            TP(CFrame.new(-12545.2353515625, 337.20330810546875, -7454.07470703125))
+        else
+            TP(CFrame.new(-2550.043212890625, 6.890709400177002, 2047.015625))
+            TP(CFrame.new(-1248.0438232421875, 2.6870851516723633, 1716.0859375))
+            TP(CFrame.new(-459.51275634765625, 7.687240123748779, 1455.679443359375))
+            TP(CFrame.new(-572.7285766601562, 7.687240123748779, 1797.2501220703125))
+            TP(CFrame.new(781.9508666992188, 5.761781215667725, 1492.8056640625))
+            TP(CFrame.new(949.3020629882812, 16.55164909362793, 1421.4573974609375))
+            TP(CFrame.new(1115.21484375, 7.338680744171143, -1159.033935546875))
+            TP(CFrame.new(3876.05029296875, 5.4081878662109375, -1907.011474609375))
+            TP(CFrame.new(5087.5341796875, 48.43275833129883, 4126.625))
+            TP(CFrame.new(-1135.5067138671875, 4.787090301513672, 3821.385498046875))
+            TP(CFrame.new(881.5269775390625, 3.4771769046783447, 4100.76611328125))
+            TP(CFrame.new(-4830.9208984375, 20.68707275390625, 4373.51953125))
+            TP(CFrame.new(-5206.47998046875, 4.308171272277832, 8430.990234375))
+            TP(CFrame.new(-1324.8131103515625, 11.88819408416748, 500.3249816894531))
+            TP(CFrame.new(-1439.505615234375, 7.32259464263916, -2801.103515625))
+            TP(CFrame.new(-4935.75830078125, 2.8822989463806152, -2325.49462890625))
+            TP(CFrame.new(-4874.67578125, 717.705078125, -2625.676513671875))
+            TP(CFrame.new(-7884.97900390625, 5545.6123046875, -361.72772216796875))
+            TP(CFrame.new(4861.38330078125, 5.687756061553955, 741.5126342773438))
+        end
+    end
+end)
+end
+end)
+spawn(function()
+pcall(function()
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+	vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	wait(1)
+	vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+end)
+end)
+
+Main:Toggle("Auto Cofetti Hop",false,function(value)
+ Hop()
+end)
+Main:Seperator("Mystic Island")
+
+Main:Toggle("Auto Mystic Island",false,function(value)
+ if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                           topos(game:GetService("Workspace").Map:FindFirstChild("MysticIsland").HumanoidRootPart.CFrame * CFrame.new(0,500,-100))
+                    else
+if _G.Mystichop then
+Hop()
+end
+end
+end)
+
+Main:Toggle("Auto Mystic Island Hop",false,function(value)
+ _G.Mystichop = value
+end)
+
 
 Main:Seperator("Mastery")
  
@@ -4434,33 +4655,95 @@ Main:Seperator("Mastery")
    end
    end)
  end)
+ 
+    function topos(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 360 then
+        Speed = 1200
+    elseif Distance < 1000 then
+        Speed = 360
+    elseif Distance < 360 then
+        Speed = 1200
+    elseif Distance >= 1000 then
+        Speed = 360
+    end
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
+end
 
 Main:Seperator("Chest")
 
-Main:Toggle("Auto Farm Chest (Tween)",_G.Auto_Farm_Chest,function(value)
- _G.Auto_Farm_Chest = value
-end)
+Main:Toggle("Auto Farm Chest (Tween)",false,function(t)
 
-spawn(function()
-    while wait() do
-        if _G.Auto_Farm_Chest then
-            pcall(function()
-                if game:GetService("Workspace"):FindFirstChild("Chest1") or game:GetService("Workspace"):FindFirstChild("Chest2") or game:GetService("Workspace"):FindFirstChild("Chest3") then
-                    for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-                        if v.Name == "Chest1" or v.Name == "Chest2" or v.Name == "Chest3" then
-							repeat wait()
-								topos(v.CFrame)
-							until not v.Parent or _G.Auto_Farm_Chest == false
-                        end
-                    end
-                else
-                    if _G.Auto_Farm_Chest_Hop then
-                        Hop()
-                    end
-                end
-            end)
-        end
-    end
+ _G.d = t
+ local function HttpGet(url)
+ return game:GetService("HttpService"):JSONDecode(htgetf(url))
+ end
+ game:GetService('RunService').Stepped:connect(function()
+  if _G.d then
+  zeroGrav(game.Players.LocalPlayer.Character.HumanoidRootPart)
+  end
+  end)
+
+
+ function FindNearest(chests)
+ local lowest = math.huge -- infinity
+ local chest = nil
+ for i,v in pairs(chests) do
+ if v then
+ local distance = (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude
+ if distance < lowest then
+ lowest = distance
+ chest = v
+ end
+ end
+ end
+ return chest
+ end
+
+ game:GetService("ReplicatedStorage"):WaitForChild("Remotes")
+ local TeleportService = game:GetService("TeleportService")
+ while _G.d and wait() do
+ local chests = {}
+ for i,d in pairs(game:GetService("Workspace"):GetChildren()) do
+ if string.find(d.Name, "Chest") ~= nil then
+ table.insert(chests, d)
+ end
+ end
+ if #chests == 0 then
+ pcall(function()
+  local d = HttpGet("https://www.roblox.com/games/getgameinstancesjson?placeId=" .. game.PlaceId .. "&startindex=0")
+  local f = HttpGet("https://www.roblox.com/games/getgameinstancesjson?placeId=" .. game.PlaceId .. "&startindex=".. math.random(0,tonumber(d.TotalCollectionSize)))
+  local c = f.Collection[math.random(1,#f.Collection)]
+  game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, c.Guid)
+  end)
+ wait(0.5)
+ end
+ if game.Players.LocalPlayer.Team == nil then
+ game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("SetTeam", "Marines")
+ end
+ if game.Players.LocalPlayer.Character then
+ local close = FindNearest(chests)
+ if close == nil then
+ if game.VIPServerOwnerId == 0 then
+ pcall(function()
+  local d = HttpGet("https://www.roblox.com/games/getgameinstancesjson?placeId=" .. game.PlaceId .. "&startindex=0")
+  local f = HttpGet("https://www.roblox.com/games/getgameinstancesjson?placeId=" .. game.PlaceId .. "&startindex=".. math.random(0,tonumber(d.TotalCollectionSize)))
+  local c = f.Collection[math.random(1,#f.Collection)]
+  game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, c.Guid)
+  end)
+ end
+ wait(0.5)
+ else
+  ChestCFrame = CFrame.new(close.CFrame.X,close.CFrame.Y,close.CFrame.Z)
+ topos(ChestCFrame,TweenSpeedChest)
+ repeat wait() until d == nil or d.Parent == nil or _G.d == false
+ end
+ end
+end
 end)
 
 Main:Toggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
@@ -8491,9 +8774,10 @@ Teleport:Seperator("WORLD")
   topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
   end
   end
-  end)
+ end)
  
  Teleport:Seperator("Island")
+ 
  if World1 then
  Teleport:Dropdown("Select Island", {
   "WindMill",
@@ -9646,21 +9930,6 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
                 end
             end
         end)
-    end)
-    
-    Misc:Toggle("Infinite Ability",false,function(value)
-        InfAbility = value
-        if value == false then
-            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility"):Destroy()
-        end
-    end)
-    
-    spawn(function()
-        while wait() do
-            if InfAbility then
-                InfAb()
-            end
-        end
     end)
     
     Misc:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
