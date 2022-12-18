@@ -1,4 +1,4 @@
-repeat wait(1.5) until game:IsLoaded()
+repeat wait() until game:IsLoaded()
 repeat wait() until game:GetService("Players")
 repeat wait() until game:GetService("Players").LocalPlayer
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
@@ -46,6 +46,7 @@ end)
 _G.SaveSetting = {
 	--Config Name ชื่อ คอนฟิค เช่น
    AutoFarm = false,
+   AutoFarmSky = false,
    AutoNewWorld = false--ถ้าเยอกว่านั้นใช้ ใส่ , นี้ด้วย เช่น
    --[[
    PiwwySave1 = false,
@@ -55,16 +56,16 @@ _G.SaveSetting = {
 		  
    function LoadSettings()
 	   if readfile and writefile and isfile and isfolder then
-		   if not isfolder("Piwwy Hub Premium Scripts") then
-			   makefolder("Piwwy Hub Premium Scripts")
+		   if not isfolder("Banana Hub Premium Scripts") then
+			   makefolder("Banana Hub Premium Scripts")
 		   end
-		   if not isfolder("Piwwy Hub Premium Scripts/Blox Fruits/") then
-			   makefolder("Piwwy Hub Premium Scripts/Blox Fruits/")
+		   if not isfolder("Banana Hub Premium Scripts/Blox Fruits/") then
+			   makefolder("Banana Hub Premium Scripts/Blox Fruits/")
 		   end
-		   if not isfile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
-			   writefile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.SaveSetting))
+		   if not isfile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			   writefile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.SaveSetting))
 		   else
-			   local Decode = game:GetService("HttpService"):JSONDecode(readfile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			   local Decode = game:GetService("HttpService"):JSONDecode(readfile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
 			   for i,v in pairs(Decode) do
 				   _G.SaveSetting[i] = v
 			   end
@@ -76,15 +77,15 @@ _G.SaveSetting = {
    
    function savesettings()
 	   if readfile and writefile and isfile and isfolder then
-		   if not isfile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+		   if not isfile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
 			   LoadSettings()
 		   else
-			   local Decode = game:GetService("HttpService"):JSONDecode(readfile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			   local Decode = game:GetService("HttpService"):JSONDecode(readfile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
 			   local Array = {}
 			   for i,v in pairs(_G.SaveSetting) do
 				   Array[i] = v
 			   end
-			   writefile("Piwwy Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
+			   writefile("Banana Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
 		   end
 	   else
 		   return warn("Status : Undetected Executor")
@@ -104,6 +105,7 @@ elseif placeId == 4442272183 then
 elseif placeId == 7449423635 then
     Three_World = true
 end
+
 
 -- [Deleted Effect Auto]
 
@@ -399,6 +401,9 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(61123, 19, 1569)
 			VectorQuest = Vector3.new(61123, 19, 1569)
+			if (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
 		elseif MyLevel == 400 or MyLevel <= 449 then -- Fishman Commando
 			LevelFarm = 19
 
@@ -413,6 +418,9 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(61123, 19, 1569)
 			VectorQuest = Vector3.new(61123, 19, 1569)
+						if (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
 		elseif MyLevel == 450 or MyLevel <= 474 then -- God's Guards
 			LevelFarm = 20
 
@@ -427,6 +435,9 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(-4722, 845, -1954)
 			VectorQuest = Vector3.new(-4722, 846, -1954)
+			if AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+					end
 		elseif MyLevel == 475 or MyLevel <= 524 then -- Shandas
 			LevelFarm = 21
 
@@ -441,6 +452,9 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(-7862, 5546, -380)
 			VectorQuest = Vector3.new(-7862, 5546, -380)
+			if AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+					end
 		elseif MyLevel == 525 or MyLevel <= 549 then -- Royal Squad
 			LevelFarm = 22
 
@@ -1233,6 +1247,8 @@ function CheckQuest()
 		end
 	end
 end
+
+
 function TP(P)
 local Distance = (P.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
 local Speed = 300 -- ความเร็วของมึง
@@ -1242,15 +1258,32 @@ tween:Play()
 end
 
 
-
 --------------------------------------------
 -- UI System
 local repo = 'https://raw.githubusercontent.com/Pakkasheed/wally-rblx/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'LinoriaLib(Pak).lua'))()
 
+
+Library:SetWatermarkVisibility(true)
+
+function setwatermarktime()
+    local dgt = math.floor(workspace.DistributedGameTime+0.27322)
+    local hr = math.floor(dgt/(60^2))%24
+    local min = math.floor(dgt/(60^1))%60
+    local sec = math.floor(dgt/(60^0))%60
+    Library:SetWatermark("Banana Hub Pc Editon 2.0 | "..hr.." Hour(s) "..min.." Minute(s) "..sec.." Second(s)")
+ end
+ 
+ spawn(function()
+     while task.wait(0) do 
+         pcall(function() setwatermarktime() 
+         end) 
+     end 
+end)
+
 local Window = Library:CreateWindow({
-    Title = 'Sell All This For 150B😳',
+    Title = 'Banana Hub | Pc Editon 2.0',
     Center = true, 
     AutoShow = true,
 })
@@ -1482,12 +1515,13 @@ task.spawn(
         pcall(
             function()
                 while wait() do
-                    LevelStast:SetText("Level : " .. game:GetService("Players").localPlayer.Data.Level.value)
+                    LevelFarm:SetText("Level : " .. game:GetService("Players").localPlayer.Data.Level.value)
                 end
             end
         )
     end
 )
+
 task.spawn(
     function()
         pcall(
@@ -1511,12 +1545,13 @@ spawn(function()
 end
 end)
 LevelFarm = AutoFarm:AddLabel("Hello")
+
 task.spawn(
     function()
         pcall(
             function()
                 while wait() do
-                    LevelFarm:SetText("Level : " .. game:GetService("Players").localPlayer.Data.Level.value)
+                    LevelFarm:SetText("Level : "..game.Players.LocalPlayer.Data.Level.Value)
                 end
             end
         )
@@ -1530,6 +1565,7 @@ AutoFarm:AddToggle('AutoFarmLevel', {
 AutoFarm:AddToggle('AutoFarmSky', {
     Text = 'Auto Farm [Skypiea]',
     Default = _G.SaveSetting.AutoFarmSky,
+    Tooltip = 'Turn On When Level 40 to Level 100',
 })
 AutoFarm:AddToggle('NewWorld', {
     Text = 'Auto New World',
@@ -1540,13 +1576,87 @@ Toggles.NewWorld:OnChanged(function(t)
     _G.SaveSetting.AutoNewWorld = t
     savesettings()
 end)
+Toggles.AutoFarmSky:OnChanged(function(t)
+    _G.SaveSetting.AutoFarmSky = t
+    savesettings()
+    AutoFarmSky = t
+end)
+
+local Lvl = game.Players.LocalPlayer.Data.Level.Value
+spawn(function()
+	while wait() do
+		pcall(function()
+			if AutoFarmSky then
+			    if Lvl == 20 or Lvl <= 100 then
+		        AutoFarm = false
+			    MonPos = CFrame.new(-7685, 5567, -502)
+			    if AutoFarmSky and (MonPos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+					end
+					if game.Workspace.Enemies:FindFirstChild("Shanda [Lv. 475]") then
+					    Bringmob = true
+						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+							if v.Name == "Shanda [Lv. 475]" and v.Humanoid.Health > 0 then
+								if v.Humanoid.Health > 0 then
+								    
+                repeat wait()
+                    _G.PosMon = v.HumanoidRootPart.CFrame
+                    Equip(WeaponName)
+                    AutoHaki()
+                    HealthMin = v.Humanoid.MaxHealth * 100 / 100
+                    Piwwy = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
+                        if v.Humanoid.Health > HealthMin then
+                    Distance = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude 
+                    Speed = 300 
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
+                    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)})
+                    tween:Play() 
+                    else
+                    Distance = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude 
+                    Speed = 300 
+                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
+                    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)})
+                    tween:Play()
+                        end
+                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                        v.HumanoidRootPart.CanCaillde = false
+                    until AutoFarmSky == false or v.Humanoid.Health <= 0
+                if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
+                        AutoFarmSky = false
+                        wait(0.25)
+                        AutoFarmSky = true
+                end
+								end
+                end
+                end
+						
+					
+			
+				end
+			end
+end
+		end)
+			end
+end)
+
+spawn(function()
+game:GetService("RunService").Heartbeat:Connect(function()
+    if AutoFarmSky then
+    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+        setfflag("HumanoidParallelRemoveNoPhysics", "False")
+        setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+        game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+        end
+    end
+end)
+end)
 
 Toggles.AutoFarmLevel:OnChanged(function(t)
     _G.SaveSetting.AutoFarm = t
-
     AutoFarm = t
     Bringmob = t
-            savesettings()
+    savesettings()
 end)
 
 Weapon = {
@@ -1572,6 +1682,8 @@ SettingGeneral:AddDropdown('FastAttackMode', {
     Default = "Normal",
     Multi = false,
     Text = 'Attack Modes',
+    Tooltip = 'Extreme might be kick',
+
 
 })
 Options.FastAttackMode:OnChanged(function(vu)
@@ -1582,9 +1694,15 @@ task.spawn(function()
 		pcall(function()
 		    if FastAttackSpeed == "Normal" then
 		        _G.FastAttackNormalSpeed = true
+		        else
+		          _G.FastAttackNormalSpeed = false
 		    end
+		  
+		        
 	        if FastAttackSpeed == "Extreme" then
 	            _G.FastAttackExtremeSpeed = true
+	            else
+	                _G.FastAttackExtremeSpeed = false
 	            end
 		end)
 	end
@@ -1793,7 +1911,7 @@ end)
                 end)
             end)
 
-local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
+            local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
             local VirtualUser = game:GetService('VirtualUser')
             local RigControllerR = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.RigController))[2]
             local Client = game:GetService("Players").LocalPlayer
@@ -1830,7 +1948,7 @@ local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPl
             
             task.spawn(
                 function()
-                while wait(0.059) do
+                while wait(0.020) do
                     if  _G.FastAttackNormalSpeed then
                         if SeraphFrame.activeController then
                             -- if v.Humanoid.Health > 0 then
@@ -1879,10 +1997,10 @@ local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPl
             
             b = tick()
             spawn(function()
-                while wait(0.059) do
+                while wait(0.020) do
                     if  _G.FastAttackNormalSpeed then
                         if b - tick() > 0.75 then
-                            wait(0.059)
+                            wait(0.020)
                             b = tick()
                         end
                         pcall(function()
@@ -1890,7 +2008,7 @@ local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPl
                                 if v.Humanoid.Health > 0 then
                                     if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
                                         Attack()
-                                        wait(0.059)
+                                        wait(0.020)
                                         Boost()
                                     end
                                 end
@@ -1902,17 +2020,17 @@ local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPl
             
             k = tick()
             spawn(function()
-                while wait(0.059) do
+                while wait(0.020) do
                     if  _G.FastAttackNormalSpeed then
                         if k - tick() > 0.75 then
-                            wait(0.059)
+                            wait(0.020)
                             k = tick()
                         end
                         pcall(function()
                             for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
                                 if v.Humanoid.Health > 0 then
                                     if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 40 then
-                                    wait(0.059)
+                                    wait(0.020)
                                     Unboost()
                                     end
                                 end
@@ -2098,27 +2216,24 @@ AutoFarm2:AddDropdown('SelectBoss', {
 Options.SelectBoss:OnChanged(function(a)
 	SelectBoss = a
 end)
-
-
--- You can use the SaveManager:LoadAutoloadConfig() to load a config 
--- which has been marked to be one that auto loads!
-
 -------------
 
 
 spawn(function()
 while wait() do
     if AutoFarm then
-        pcall(function()
+    pcall(function()
         CheckQuest()
 if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-wait(0.1)
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",QuestName,LevelQuest)
 TP(CFrameMon)
+if (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
+wait(.5)
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",QuestName,LevelQuest)
+end
 elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
     if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-            if v.Name == Name and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid")   then
+            if v.Name == Name and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") then
                 if v.Humanoid.Health > 0 then
                 repeat wait()
                     _G.PosMon = v.HumanoidRootPart.CFrame
@@ -2129,13 +2244,13 @@ elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == tr
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
                         if v.Humanoid.Health > HealthMin then
                     Distance = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude 
-                    Speed = 300 
+                    Speed = 550 
                     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
                     tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)})
                     tween:Play() 
                     else
                     Distance = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude 
-                    Speed = 300 
+                    Speed = 550 
                     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
                     tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)})
                     tween:Play()
@@ -2143,16 +2258,9 @@ elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == tr
                     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                         v.HumanoidRootPart.CanCaillde = false
                     until AutoFarm == false or v.Humanoid.Health <= 0
-                    else
-                        wait(1)
-                        TP(CFrameMon)
-                   
-                if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                end
                 if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 then
                         AutoFarm = false
-                        wait(3)
+                        wait(0.25)
                         AutoFarm = true
                         end
                 end
@@ -2209,8 +2317,8 @@ task.spawn(function()
 	while task.wait() do
 		pcall(function()
 			if Bringmob then
+			    click()
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-				    click()
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
 						if InMyNetWork(v.HumanoidRootPart) then
 							v.HumanoidRootPart.CFrame = _G.PosMon
