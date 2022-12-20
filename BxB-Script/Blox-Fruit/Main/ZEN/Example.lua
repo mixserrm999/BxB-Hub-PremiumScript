@@ -201,7 +201,7 @@ local Notification = require(game:GetService("ReplicatedStorage").Notification)
 Notification.new("<Color=White>"..PlaceName.."<Color=/>"):Display()
 Notification.new("<Color=Blue>BxB.xyz | Premium!<Color=/>"):Display()
 Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green>Script Loading...<Color=/>"):Display()
-
+Notification.new("<Color=Red>[ System ] <Color=/> - <Color=Green>Change Logs<Color=/>  (+ Fix Select Team)"):Display()
 
 
 if _G.Settings.Select_Weapon == nil then
@@ -2508,6 +2508,63 @@ spawn(function()
 			end)
 		end
 	end
+end)
+local MainSection = MainTab:CreateSection({
+    Name = "Info",
+	Side = "Left"
+})
+local CQ = MainSection:AddLabel({
+	Name = "Quest : ❌",
+	Flag = ""
+})
+local CM = MainSection:AddLabel({
+	Name = "Monster : ❌",
+	Flag = ""
+})
+local CNM = MainSection:AddLabel({
+	Name = "Monster Name : ❌",
+	Flag = ""
+})
+local CL = MainSection:AddLabel({
+	Name = "Level Quest : ❌",
+	Flag = ""
+})
+spawn(function()
+    while wait() do
+        if _G.Auto_Farm_Level == true then
+            CQ:Set("Quest : "..NameQuest)
+        elseif _G.Auto_Farm_Level == false then
+            CQ:Set("Quest : ❌")
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if _G.Auto_Farm_Level == true then
+            CM:Set("Monster : "..Ms)
+        elseif _G.Auto_Farm_Level == false then
+            CM:Set("Monster : ❌")
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if _G.Auto_Farm_Level == true then
+            CNM:Set("Monster Name : "..NameMon)
+        elseif _G.Auto_Farm_Level == false then
+            CNM:Set("Monster Name: ❌")
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        if _G.Auto_Farm_Level == true then
+            CL:Set("Level Quest : "..LevelQuest)
+        elseif _G.Auto_Farm_Level == false then
+            CL:Set("Level Quest: ❌")
+        end
+        
+    end
 end)
 
 local chestt = MainTab:CreateSection({
