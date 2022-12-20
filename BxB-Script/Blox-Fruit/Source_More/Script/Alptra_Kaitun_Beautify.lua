@@ -5967,6 +5967,10 @@ KaiTun2:AddToggle(
         end}
 )
 local KaiTun2 = KaiTun:CreateSection({Name = "Stars Farm", Side = "Left"})
+CQ = KaiTun2:AddLabel({Name = "Quest : ❌"})
+CM = KaiTun2:AddLabel({Name = "Level : ❌"})
+CNM = KaiTun2:AddLabel({Name = "Level : ❌"})
+CL = KaiTun2:AddLabel({Name = "Level : ❌"})
 local KaiTun2 = KaiTun:CreateSection({Name = "Main", Side = "Left"})
 local KaiTun3 = KaiTun:CreateSection({Name = "Main", Side = "Right"})
 local KaiTun6 = KaiTun:CreateSection({Name = "Sword", Side = "Right"})
@@ -6506,6 +6510,66 @@ task.spawn(
             function()
                 while wait() do
                     EXP:Set("EXP : " .. game:GetService("Players").localPlayer.Data.Exp.Value)
+                end
+            end
+        )
+    end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if getgenv().LevelFarm == true then
+                        CQ:Set("Quest : "..NameQuest)
+                    elseif getgenv().LevelFarm == false then
+                        CQ:Set("Quest : ❌")
+                    end
+                end
+            end
+        )
+    end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if getgenv().LevelFarm == true then
+                        CM:Set("Monster : "..Mon)
+                    elseif getgenv().LevelFarm == false then
+                        CM:Set("Monster : ❌")
+                    end
+                end
+            end
+        )
+    end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if getgenv().LevelFarm == true then
+                        CNM:Set("Monster Name : "..NameMon)
+                    elseif getgenv().LevelFarm == false then
+                        CNM:Set("Monster Name: ❌")
+                    end
+                end
+            end
+        )
+    end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if getgenv().LevelFarm == true then
+                        CL:Set("Level Quest : "..LevelQuest)
+                    elseif getgenv().LevelFarm == false then
+                        CL:Set("Level Quest: ❌")
+                    end
                 end
             end
         )
