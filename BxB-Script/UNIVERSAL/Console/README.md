@@ -3,7 +3,7 @@ I have always disliked Synapse's documentation on rconsole functions so i made a
 
 rconsoleprint allows you to print a message to the console. To use it, you need to provide a string as the argument. The string can contain any message you want to print to the console.
 
-#Code:
+# Code:
 ```lua
 rconsoleprint("Hello, World!")
 ```
@@ -15,7 +15,7 @@ This function works similar to the rconsoleprint function, but it adds a "info" 
 
 Here's an example of how you can use the rconsoleinfo function:
 
-#Code:
+# Code:
 ```lua
 rconsoleinfo("This is an informational message.")
 ```
@@ -26,7 +26,7 @@ rconsolewarn function
 This function works similar to the rconsoleprint function, but it adds a "warning" prefix to the message. This can be useful for printing warning messages to the console.
 
 Here's an example of how you can use the rconsolewarn function:
-#Code:
+# Code:
 ```lua
 rconsolewarn("This is a warning message.")
 ```
@@ -38,7 +38,7 @@ This function works similar to the rconsoleprint function, but it adds an "error
 
 Here's an example of how you can use the rconsoleerr function:
 
-#Code:
+# Code:
 ```lua
 rconsoleerr("This is an error message.")
 ```
@@ -50,7 +50,7 @@ This function allows you to clear the console. It doesn't take any arguments and
 
 Here's an example of how you can use the rconsoleclear function:
 
-#Code:
+# Code:
 ```lua
 rconsoleclear()
 ```
@@ -62,7 +62,7 @@ This function allows you to set the title of the console. It takes a string as t
 
 Here's an example of how you can use the rconsolename function:
 
-#Code:
+# Code:
 ```lua
 rconsolename("My Console")
 ```
