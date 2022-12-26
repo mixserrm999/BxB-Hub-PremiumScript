@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded()
 repeat wait() until game:GetService("Players")
 repeat wait() until game:GetService("Players").LocalPlayer
 repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui
-repeat wait() until game:GetService("ReplicatedStorage").Effect.Container
+
 do
 	local ui = game.CoreGui:FindFirstChild("ABc")
 	if ui then
@@ -1467,9 +1467,15 @@ function library:Window(text,logo,keybind)
 	return uitab
 end
 --// Config \\--
-_G.Rejoin = true
-_G.AFK = true
+_G.Settings = {
+   Main = {
+["Rejoin"] = false,
+["AFK"] = false,
+   },
+}
 --// END Config \\--
+
+
 
 local win = library:Window(HubName,"9133638985",Enum.KeyCode.RightControl)
 
@@ -1478,7 +1484,58 @@ local Tab1 = win:Tab("Main")
 local exc = win:Tab("Example")
 local Tab2 = win:Tab("Player")
 
+--// SAVE SYSTEM \\--
+
+function LoadSettings()
+	if readfile and writefile and isfile and isfolder then
+		if not isfolder("BxB Hub Premium Scripts") then
+			makefolder("BxB Hub Premium Scripts")
+		end
+		if not isfolder("BxB Hub Premium Scripts/Blox Fruits/") then
+			makefolder("BxB Hub Premium Scripts/Blox Fruits/")
+		end
+		if not isfile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			writefile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.Settings))
+		else
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			for i,v in pairs(Decode) do
+				_G.Settings[i] = v
+			end
+		end
+	else
+		return warn("Status : Undetected Executor")
+	end
+end
+
+function SaveSettings()
+	if readfile and writefile and isfile and isfolder then
+		if not isfile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			LoadSettings()
+		else
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			local Array = {}
+			for i,v in pairs(_G.Settings) do
+				Array[i] = v
+			end
+			writefile("BxB Hub Premium Scripts/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
+		end
+	else
+		return warn("Status : Undetected Executor")
+	end
+end
+
+LoadSettings()
+
+--// END SAVE SYSTEM \\--
 --// Tab1 \\--
+Tab1:Toggle("AFK",_G.Settings.Main["AFK"],"6022668898",function(value)
+_G.Settings.Main["AFK"] = value
+SaveSettings()
+end)
+Tab1:Toggle("Rejoin",_G.Settings.Main["Rejoin"],"6022668898",function(value)
+_G.Settings.Main["Rejoin"] = value
+SaveSettings()
+end)
 local Loop = Tab1:Label("                    ")
 
 function Updateloops()
@@ -1629,7 +1686,11 @@ spawn(function()
         UpdatePlr()
     end
 end)
+
 --// END FPS/PING \\--
+exc:Button("CFrame_Copy",function(value)
+setclipboard(tostring(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame))
+end)
 Tab1:Toggle("White Screen",_G.White_Screen,"6022668898",function(value)
 _G.White_Screen = value
 		if _G.White_Screen then
@@ -1639,7 +1700,7 @@ _G.White_Screen = value
 		end
 end)
 
-Tab1:Toggle("White Screen",_G.White_Screen,"6022668898",function(value)
+Tab1:Toggle("Black Screen",_G.White_Screen,"6022668898",function(value)
 _G.Black_Screen = value
 local BlackScreen = game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen
 getgenv().DefaultSize = BlackScreen.Size
@@ -1667,6 +1728,7 @@ _G.Toggle = value
 end)
 exc:Button("Toggle",function(value)
  print(_G.TextBox)
+ 
  _G.Button = value
 end)
 exc:Slider("Slider",0,100,5,function(value)
@@ -1756,7 +1818,7 @@ end)
 -- // Anti AFK \\--
 spawn(function()
     while true do wait()
-        if _G.AFK then
+        if _G.Settings.Main["AFK"] then
             game:GetService("Players").LocalPlayer.Idled:Connect(function()
     game:GetService("VirtualUser"):CaptureController()
     game:GetService("VirtualUser"):ClickButton2(Vector2.new())
@@ -1769,7 +1831,7 @@ end)
 spawn(function()
     while true do wait()
         getgenv().rejoin = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Kick)
-            if not _G.TP_Ser and _G.Rejoin then
+            if not _G.TP_Ser and _G.Settings.Main["Rejoin"] then
                 if Kick.Name == 'ErrorPrompt' and Kick:FindFirstChild('MessageArea') and Kick.MessageArea:FindFirstChild("ErrorFrame") then
                     game:GetService("TeleportService"):Teleport(game.PlaceId)
                     wait(50)
